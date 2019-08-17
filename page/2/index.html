@@ -252,304 +252,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/09/08/centos7-glibc-update/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="哈特中尉">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哈特中尉's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/08/centos7-glibc-update/" itemprop="url">centos7升级glibc</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T12:56:03+08:00">
-                2017-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">centos7</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="查看linux内核"><a href="#查看linux内核" class="headerlink" title="查看linux内核"></a>查看linux内核</h4><p><code>uname -r</code><br>4.12.1-1.el7.elrepo.x86_64</p>
-<h4 id="查看centos版本"><a href="#查看centos版本" class="headerlink" title="查看centos版本"></a>查看centos版本</h4><p><code>lsb_release -a</code></p>
-<p>command not found 解决方法：<br><code>yum install redhat-lsb -y</code></p>
-<h4 id="下载安装包-清华大学开源软件镜像站"><a href="#下载安装包-清华大学开源软件镜像站" class="headerlink" title="下载安装包(清华大学开源软件镜像站)"></a>下载安装包(清华大学开源软件镜像站)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/gnu/glibc/glibc-2.20.tar.gz</span><br><span class="line">tar -zxvf glibc-2.20.tar.gz</span><br><span class="line">mkdir glibcbuild</span><br><span class="line">cd glibcbuild</span><br><span class="line">../glibc-2.20/configure  --prefix=/usr --disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin  </span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-<p>成功则提示：Your new glibc installation seems to be ok.</p>
-<h4 id="2-26安装失败"><a href="#2-26安装失败" class="headerlink" title="2.26安装失败"></a>2.26安装失败</h4><p>2.26版本 执行configure的时候出现如下错误，查阅资料好像需要先升级gcc，再升级glibc。<br>保险起见，没有升级gcc，就用2.20版本了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">checking if gcc -B/usr/bin/ is sufficient to build libc... no</span><br><span class="line">checking for nm... nm</span><br><span class="line">checking for python3... no</span><br><span class="line">checking for python... python</span><br><span class="line">configure: error:</span><br><span class="line">*** These critical programs are missing or too old: compiler</span><br><span class="line">*** Check the INSTALL file for required versions.</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/09/02/nginx-tomcat/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="哈特中尉">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哈特中尉's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/02/nginx-tomcat/" itemprop="url">nginx+tomcat负载均衡</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-02T12:56:03+08:00">
-                2017-09-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nginx/" itemprop="url" rel="index">
-                    <span itemprop="name">nginx</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="tomcat准备"><a href="#tomcat准备" class="headerlink" title="tomcat准备"></a>tomcat准备</h4><p>本地成功启动两个tomcat<br>tomcatA  8080  webapps/cms/index.html文件的内容tomcatA<br>tomcatB  8081  webapps/cms/index.html文件的内容tomcatA</p>
-<p>tomcatA  <a href="http://localhost:8080/cms/index.html" target="_blank" rel="noopener">http://localhost:8080/cms/index.html</a><br>tomcatB  <a href="http://localhost:8081/cms/index.html" target="_blank" rel="noopener">http://localhost:8081/cms/index.html</a></p>
-<h4 id="配置nginx"><a href="#配置nginx" class="headerlink" title="配置nginx"></a>配置nginx</h4><p>nginx.conf 配置内容如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">http&#123;</span><br><span class="line">    upstream cmsCluster&#123;</span><br><span class="line">         server localhost:8080 weight=1;</span><br><span class="line">         server localhost:8081 weight=1;</span><br><span class="line">    &#125;</span><br><span class="line">    server&#123;</span><br><span class="line">        listen 8090;</span><br><span class="line">        server_name localhost;</span><br><span class="line">        location /&#123;</span><br><span class="line">            proxy_pass http://cmsCluster;</span><br><span class="line">            proxy_set_header   X-Real-IP        $remote_addr;</span><br><span class="line">            proxy_set_header   Host             $host;</span><br><span class="line">            proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">            proxy_set_header   X-Forwarded-Proto $scheme;</span><br><span class="line">        &#125;</span><br><span class="line">        location = /50x.html &#123;  </span><br><span class="line">            root   html;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>nginx  <a href="http://localhost:8090/cms/index.html" target="_blank" rel="noopener">http://localhost:8090/cms/index.html</a></p>
-<p>不停刷新页面，看内容变化。负载均衡完成。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/08/14/centos7-tomcat8-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1823,6 +1525,452 @@ pkill -9 java</code></pre>
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/20/centos7-mysql5.7-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/20/centos7-mysql5.7-install/" itemprop="url">centos7安装mysql5.7</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T12:56:03+08:00">
+                2017-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">centos7</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="查看已安装的mysql"><a href="#查看已安装的mysql" class="headerlink" title="查看已安装的mysql"></a>查看已安装的mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed | grep mysql</span><br></pre></td></tr></table></figure>
+
+<h4 id="卸载已经安装"><a href="#卸载已经安装" class="headerlink" title="卸载已经安装"></a>卸载已经安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y remove mysql-libs.x86_64</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置yum源"><a href="#配置yum源" class="headerlink" title="配置yum源"></a>配置yum源</h4><ul>
+<li><p>下载mysql源安装包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装mysql源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall mysql57-community-release-el7-11.noarch.rpm</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查mysql源是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum repolist enabled | grep &quot;mysql.*-community.*&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看yum库上的mysql版本信息<br><code>yum list | grep mysql</code>或 <code>yum -y list mysql*</code></p>
+</li>
+</ul>
+<h4 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mysql-community-server</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mysql-server mysql mysql-devel</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动MySQL服务"><a href="#启动MySQL服务" class="headerlink" title="启动MySQL服务"></a>启动MySQL服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看MySQL的启动状态"><a href="#查看MySQL的启动状态" class="headerlink" title="查看MySQL的启动状态"></a>查看MySQL的启动状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable mysqld</span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改root默认密码"><a href="#修改root默认密码" class="headerlink" title="修改root默认密码"></a>修改root默认密码</h4><p>mysql安装完成之后，在/var/log/mysqld.log文件中给root生成了一个默认密码。<br>通过下面的方式找到root默认密码，然后登录mysql进行修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</span><br><span class="line">mysql -uroot -p</span><br><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;root@2017!&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password for &apos;root&apos;@&apos;localhost&apos;=password(&apos;root@2017!&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>注意：mysql5.7默认安装了密码安全检查插件（validate_password），默认密码检查策略要求密码必须包含：大小写字母、数字和特殊符号，并且长度不能少于8位。否则会提示ERROR 1819 (HY000): Your password does not satisfy the current policy requirements错误.</p>
+<h4 id="忘记root密码解决办法"><a href="#忘记root密码解决办法" class="headerlink" title="忘记root密码解决办法"></a>忘记root密码解决办法</h4><p><code>vim /etc/my.cnf</code><br>在[mysqld]的段中加上一句：<code>skip-grant-tables</code><br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">datadir=/var/lib/mysql</span><br><span class="line">socket=/var/lib/mysql/mysql.sock</span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure>
+
+<p>重新启动mysqld<br><code>service mysqld restart</code><br>登录Mysql<br>直接输入<code>mysql</code></p>
+<p>依次执行下面的语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> read_only=<span class="number">0</span>;  <span class="comment">--关掉新主库的只读属性</span></span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">password</span> <span class="keyword">for</span> <span class="string">'root'</span>@<span class="string">'localhost'</span>=<span class="keyword">password</span>(<span class="string">'root@2017!'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> read_only=<span class="number">1</span>;   <span class="comment">--(读写属相)</span></span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+
+<p>1.还原配置文件<br>2.重启mysql服务</p>
+<h4 id="查看密码策略"><a href="#查看密码策略" class="headerlink" title="查看密码策略"></a>查看密码策略</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show variables like &apos;%password%&apos;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>validate_password_policy：密码策略，默认为MEDIUM策略  </li>
+<li>validate_password_dictionary_file：密码策略文件，策略为STRONG才需要  </li>
+<li>validate_password_length：密码最少长度  </li>
+<li>validate_password_mixed_case_count：大小写字符长度，至少1个  </li>
+<li>validate_password_number_count ：数字至少1个  </li>
+<li>validate_password_special_char_count：特殊字符至少1个<br>上述参数是默认策略MEDIUM的密码检查规则。</li>
+</ul>
+<p>共有以下几种密码策略：<br>策略    检查规则</p>
+<ul>
+<li>0 or LOW    Length</li>
+<li>1 or MEDIUM    Length; numeric, lowercase/uppercase, and special characters</li>
+<li>2 or STRONG    Length; numeric, lowercase/uppercase, and special characters; dictionary file<br>MySQL官网密码策略详细说明：<a href="http://dev.mysql.com/doc/refman/5.7/en/validate-password-options-variables.html#sysvar_validate_password_policy" target="_blank" rel="noopener">http://dev.mysql.com/doc/refman/5.7/en/validate-password-options-variables.html#sysvar_validate_password_policy</a></li>
+</ul>
+<h4 id="修改密码策略"><a href="#修改密码策略" class="headerlink" title="修改密码策略"></a>修改密码策略</h4><p>在<code>/etc/my.cnf</code>文件添加validate_password_policy配置，指定密码策略</p>
+<p>选择<code>0（LOW），1（MEDIUM），2（STRONG）</code>其中一种，选择2需要提供密码字典文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">validate_password_policy=0</span><br></pre></td></tr></table></figure>
+
+<p>如果不需要密码策略，添加my.cnf文件中添加如下配置禁用即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">validate_password = off</span><br></pre></td></tr></table></figure>
+
+<p>重新启动mysql服务使配置生效：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="添加远程登录用户"><a href="#添加远程登录用户" class="headerlink" title="添加远程登录用户"></a>添加远程登录用户</h4><p>默认只允许root帐户在本地登录，如果要在其它机器上连接mysql，必须修改root允许远程连接，或者添加一个允许远程连接的帐户，为了安全起见，我添加一个新的帐户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;yangxin&apos;@&apos;%&apos; IDENTIFIED BY &apos;Yangxin0917!&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置默认编码为utf8"><a href="#配置默认编码为utf8" class="headerlink" title="配置默认编码为utf8"></a>配置默认编码为utf8</h4><p>修改<code>/etc/my.cnf</code>配置文件，在[mysqld]下添加编码配置，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">character_set_server=utf8</span><br><span class="line">init_connect=&apos;SET NAMES utf8&apos;</span><br></pre></td></tr></table></figure>
+
+<h4 id="默认配置文件路径"><a href="#默认配置文件路径" class="headerlink" title="默认配置文件路径"></a>默认配置文件路径</h4><ul>
+<li>配置文件：/etc/my.cnf  </li>
+<li>日志文件：/var/log//var/log/mysqld.log  </li>
+<li>服务启动脚本：/usr/lib/systemd/system/mysqld.service  </li>
+<li>socket文件：/var/run/mysqld/mysqld.pid</li>
+</ul>
+<h4 id="查看my-cnf位置"><a href="#查看my-cnf位置" class="headerlink" title="查看my.cnf位置"></a>查看my.cnf位置</h4><p>查看mysqld命令位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which mysqld</span><br></pre></td></tr></table></figure>
+
+<p>查看默认的配置文件加载顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/mysqld --verbose --help | grep -A 1 &apos;Default options&apos;</span><br></pre></td></tr></table></figure>
+
+<p>显示结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Default options are read from the following files in the given order:</span><br><span class="line">/etc/my.cnf /etc/mysql/my.cnf /usr/etc/my.cnf ~/.my.cnf</span><br></pre></td></tr></table></figure>
+
+<p>查看mysql默认读取my.cnf目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql --help | grep &apos;my.cnf&apos;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">order of preference, my.cnf, $MYSQL_TCP_PORT,</span><br><span class="line">/etc/my.cnf /etc/mysql/my.cnf /usr/etc/my.cnf ~/.my.cnf</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看mysql全局变量"><a href="#查看mysql全局变量" class="headerlink" title="查看mysql全局变量"></a>查看mysql全局变量</h4><p>未登录mysql时候,shell命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin variables -p</span><br></pre></td></tr></table></figure>
+
+<p>登录mysql的时候，mysql命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show global variables;</span><br></pre></td></tr></table></figure>
+
+<h4 id="mysql备份"><a href="#mysql备份" class="headerlink" title="mysql备份"></a>mysql备份</h4><p>备份命令<br>参照：<a href="http://www.cnblogs.com/xcxc/archive/2013/01/30/2882840.html" target="_blank" rel="noopener">http://www.cnblogs.com/xcxc/archive/2013/01/30/2882840.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h127.0.0.1 -uroot -proot data11 &gt; backupfile.sql</span><br><span class="line">//       ip地址      账号root  密码root  数据库data111   生成的sql文件:backupfile.sql</span><br></pre></td></tr></table></figure>
+
+<p>备份成功，但是出现如下警告，原因是命令行写明文密码不安全。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump: [Warning] Using a password on the command line interface can be insecure.</span><br></pre></td></tr></table></figure>
+
+<p>解决办法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/mysql/my.cnf</span><br></pre></td></tr></table></figure>
+
+<p>增加mysqldump的用户和密码，则无需在命令行指定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[mysqldump]</span><br><span class="line">user=dumper</span><br><span class="line">password=dumper@2017!</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建专门的备份用户-可选"><a href="#创建专门的备份用户-可选" class="headerlink" title="创建专门的备份用户(可选)"></a>创建专门的备份用户(可选)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create user dumper@&apos;127.0.0.1&apos; identified by &apos;dumper@2017!&apos;;</span><br><span class="line">grant select on tempdb.* to dumper@&apos;127.0.0.1&apos;;</span><br><span class="line">grant show view on tempdb.* to dumper@&apos;127.0.0.1&apos;;</span><br><span class="line">grant lock tables on tempdb.* to dumper@&apos;127.0.0.1&apos;;</span><br><span class="line">grant trigger on tempdb.* to dumper@&apos;127.0.0.1&apos;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="mysql备份文件还原"><a href="#mysql备份文件还原" class="headerlink" title="mysql备份文件还原"></a>mysql备份文件还原</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -proot data11 &lt; backupfile.sql</span><br><span class="line">//  账号root  密码root  数据库data111   还原的sql文件:backupfile.sql</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改默认3306端口"><a href="#修改默认3306端口" class="headerlink" title="修改默认3306端口"></a>修改默认3306端口</h4><ul>
+<li><p><code>vi /etc/my.cnf</code></p>
+</li>
+<li><p>配置如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">port=3417</span><br><span class="line">[mysqld]</span><br><span class="line">port=3417</span><br><span class="line">datadir=/var/lib/mysql</span><br><span class="line">socket=/var/lib/mysql/mysql.sock</span><br><span class="line">symbolic-links=0</span><br><span class="line">log-error=/var/log/mysqld.log</span><br><span class="line">pid-file=/var/run/mysqld/mysqld.pid</span><br><span class="line">validate_password=off</span><br><span class="line">bind-address=127.0.0.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启mysql<br><code>systemctl restart mysqld</code></p>
+</li>
+<li><p>重启失败<br>关闭SELinux:<code>setenforce 0</code>,再次重启。</p>
+</li>
+</ul>
+<h4 id="实用sql语句"><a href="#实用sql语句" class="headerlink" title="实用sql语句"></a>实用sql语句</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***生成2-20之间随机整数**/</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">FLOOR</span>(<span class="number">2</span> + (<span class="keyword">RAND</span>() * <span class="number">20</span>));</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/20/centos7-postgresql-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/20/centos7-postgresql-install/" itemprop="url">centos7安装postgresql10.1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T12:56:03+08:00">
+                2017-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">centos7</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>官方教程：<a href="https://www.postgresql.org/download/linux/redhat/" target="_blank" rel="noopener">https://www.postgresql.org/download/linux/redhat/</a></p>
+<h4 id="安装资源rpm"><a href="#安装资源rpm" class="headerlink" title="安装资源rpm"></a>安装资源rpm</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a>安装客户端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install postgresql10</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装服务端"><a href="#安装服务端" class="headerlink" title="安装服务端"></a>安装服务端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install postgresql10-server</span><br></pre></td></tr></table></figure>
+
+<h4 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/pgsql-10/bin/postgresql-10-setup initdb</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p><code>vi /var/lib/pgsql/10/data/postgresql.conf</code><br>一共修改3处</p>
+<ul>
+<li><code>#listen_addresses = &#39;localhost&#39;</code> 改为 <code>listen_addresses = &#39;*&#39;</code></li>
+<li><code>#port = 5432</code>  改为 <code>port = 5432</code></li>
+<li><code>#password_encryption = md5</code> 改为 <code>password_encryption = md5</code></li>
+</ul>
+<h4 id="修改访问控制文件"><a href="#修改访问控制文件" class="headerlink" title="修改访问控制文件"></a>修改访问控制文件</h4><p><code>vi /var/lib/pgsql/10/data/pg_hba.conf</code><br>文件最后一行加入<br><code>host all all 0.0.0.0/0 md5</code></p>
+<h4 id="开放防火墙"><a href="#开放防火墙" class="headerlink" title="开放防火墙"></a>开放防火墙</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=5432/tcp  </span><br><span class="line">firewall-cmd --permanent --add-port=80/tcp  </span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start postgresql-10</span><br></pre></td></tr></table></figure>
+
+<h4 id="访问postgresql"><a href="#访问postgresql" class="headerlink" title="访问postgresql"></a>访问postgresql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - postgres</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置postgres用户密码"><a href="#设置postgres用户密码" class="headerlink" title="设置postgres用户密码"></a>设置postgres用户密码</h4><ul>
+<li><code>su - postgres</code> 切换用户，执行后提示符会变为 ‘-bash-4.2$’</li>
+<li><code>psql -U postgres</code> 登录数据库，执行后提示符变为 ‘postgres=#’</li>
+<li><code>ALTER USER postgres WITH PASSWORD &#39;abc123&#39;;</code>  设置postgres用户密码</li>
+<li><code>\q</code>  退出数据库</li>
+<li><code>exit</code></li>
+</ul>
+<h4 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart postgresql-10</span><br></pre></td></tr></table></figure>
+
+<h4 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable postgresql-10</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1875,7 +2023,7 @@ pkill -9 java</code></pre>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1885,10 +2033,10 @@ pkill -9 java</code></pre>
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
-                
+                </a>
               </div>
             
 
@@ -1896,10 +2044,10 @@ pkill -9 java</code></pre>
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
-                
+                </a>
               </div>
             
 
