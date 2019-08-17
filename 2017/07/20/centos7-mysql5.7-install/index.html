@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="centos7,mysql,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="查看已安装的mysql1yum list installed | grep mysql  卸载已经安装1yum -y remove mysql-libs.x86_64  配置yum源 下载mysql源安装包 1wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm  安装mysql源 1yum local">
+<meta name="keywords" content="centos7,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos7安装mysql5.7">
+<meta property="og:url" content="https://www.pengyan.top/2017/07/20/centos7-mysql5.7-install/index.html">
+<meta property="og:site_name" content="哈特中尉&#39;s Blog">
+<meta property="og:description" content="查看已安装的mysql1yum list installed | grep mysql  卸载已经安装1yum -y remove mysql-libs.x86_64  配置yum源 下载mysql源安装包 1wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm  安装mysql源 1yum local">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-22T03:09:32.370Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="centos7安装mysql5.7">
+<meta name="twitter:description" content="查看已安装的mysql1yum list installed | grep mysql  卸载已经安装1yum -y remove mysql-libs.x86_64  配置yum源 下载mysql源安装包 1wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm  安装mysql源 1yum local">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.pengyan.top/2017/07/20/centos7-mysql5.7-install/">
+
+
+
+
+
+  <title>centos7安装mysql5.7 | 哈特中尉's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">哈特中尉's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Android、iOS、Java</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/20/centos7-mysql5.7-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">centos7安装mysql5.7</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T12:56:03+08:00">
+                2017-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">centos7</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="查看已安装的mysql"><a href="#查看已安装的mysql" class="headerlink" title="查看已安装的mysql"></a>查看已安装的mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed | grep mysql</span><br></pre></td></tr></table></figure>
+
+<h4 id="卸载已经安装"><a href="#卸载已经安装" class="headerlink" title="卸载已经安装"></a>卸载已经安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y remove mysql-libs.x86_64</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置yum源"><a href="#配置yum源" class="headerlink" title="配置yum源"></a>配置yum源</h4><ul>
+<li><p>下载mysql源安装包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装mysql源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall mysql57-community-release-el7-11.noarch.rpm</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查mysql源是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum repolist enabled | grep &quot;mysql.*-community.*&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看yum库上的mysql版本信息<br><code>yum list | grep mysql</code>或 <code>yum -y list mysql*</code></p>
+</li>
+</ul>
+<h4 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mysql-community-server</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install mysql-server mysql mysql-devel</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动MySQL服务"><a href="#启动MySQL服务" class="headerlink" title="启动MySQL服务"></a>启动MySQL服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看MySQL的启动状态"><a href="#查看MySQL的启动状态" class="headerlink" title="查看MySQL的启动状态"></a>查看MySQL的启动状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable mysqld</span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改root默认密码"><a href="#修改root默认密码" class="headerlink" title="修改root默认密码"></a>修改root默认密码</h4><p>mysql安装完成之后，在/var/log/mysqld.log文件中给root生成了一个默认密码。<br>通过下面的方式找到root默认密码，然后登录mysql进行修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log</span><br><span class="line">mysql -uroot -p</span><br><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;root@2017!&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password for &apos;root&apos;@&apos;localhost&apos;=password(&apos;root@2017!&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>注意：mysql5.7默认安装了密码安全检查插件（validate_password），默认密码检查策略要求密码必须包含：大小写字母、数字和特殊符号，并且长度不能少于8位。否则会提示ERROR 1819 (HY000): Your password does not satisfy the current policy requirements错误.</p>
+<h4 id="忘记root密码解决办法"><a href="#忘记root密码解决办法" class="headerlink" title="忘记root密码解决办法"></a>忘记root密码解决办法</h4><p><code>vim /etc/my.cnf</code><br>在[mysqld]的段中加上一句：<code>skip-grant-tables</code><br>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">datadir=/var/lib/mysql</span><br><span class="line">socket=/var/lib/mysql/mysql.sock</span><br><span class="line">skip-grant-tables</span><br></pre></td></tr></table></figure>
+
+<p>重新启动mysqld<br><code>service mysqld restart</code><br>登录Mysql<br>直接输入<code>mysql</code></p>
+<p>依次执行下面的语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> mysql ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> read_only=<span class="number">0</span>;  <span class="comment">--关掉新主库的只读属性</span></span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">password</span> <span class="keyword">for</span> <span class="string">'root'</span>@<span class="string">'localhost'</span>=<span class="keyword">password</span>(<span class="string">'root@2017!'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> read_only=<span class="number">1</span>;   <span class="comment">--(读写属相)</span></span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+
+<p>1.还原配置文件<br>2.重启mysql服务</p>
+<h4 id="查看密码策略"><a href="#查看密码策略" class="headerlink" title="查看密码策略"></a>查看密码策略</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show variables like &apos;%password%&apos;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>validate_password_policy：密码策略，默认为MEDIUM策略  </li>
+<li>validate_password_dictionary_file：密码策略文件，策略为STRONG才需要  </li>
+<li>validate_password_length：密码最少长度  </li>
+<li>validate_password_mixed_case_count：大小写字符长度，至少1个  </li>
+<li>validate_password_number_count ：数字至少1个  </li>
+<li>validate_password_special_char_count：特殊字符至少1个<br>上述参数是默认策略MEDIUM的密码检查规则。</li>
+</ul>
+<p>共有以下几种密码策略：<br>策略    检查规则</p>
+<ul>
+<li>0 or LOW    Length</li>
+<li>1 or MEDIUM    Length; numeric, lowercase/uppercase, and special characters</li>
+<li>2 or STRONG    Length; numeric, lowercase/uppercase, and special characters; dictionary file<br>MySQL官网密码策略详细说明：<a href="http://dev.mysql.com/doc/refman/5.7/en/validate-password-options-variables.html#sysvar_validate_password_policy" target="_blank" rel="noopener">http://dev.mysql.com/doc/refman/5.7/en/validate-password-options-variables.html#sysvar_validate_password_policy</a></li>
+</ul>
+<h4 id="修改密码策略"><a href="#修改密码策略" class="headerlink" title="修改密码策略"></a>修改密码策略</h4><p>在<code>/etc/my.cnf</code>文件添加validate_password_policy配置，指定密码策略</p>
+<p>选择<code>0（LOW），1（MEDIUM），2（STRONG）</code>其中一种，选择2需要提供密码字典文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">validate_password_policy=0</span><br></pre></td></tr></table></figure>
+
+<p>如果不需要密码策略，添加my.cnf文件中添加如下配置禁用即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">validate_password = off</span><br></pre></td></tr></table></figure>
+
+<p>重新启动mysql服务使配置生效：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="添加远程登录用户"><a href="#添加远程登录用户" class="headerlink" title="添加远程登录用户"></a>添加远程登录用户</h4><p>默认只允许root帐户在本地登录，如果要在其它机器上连接mysql，必须修改root允许远程连接，或者添加一个允许远程连接的帐户，为了安全起见，我添加一个新的帐户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;yangxin&apos;@&apos;%&apos; IDENTIFIED BY &apos;Yangxin0917!&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置默认编码为utf8"><a href="#配置默认编码为utf8" class="headerlink" title="配置默认编码为utf8"></a>配置默认编码为utf8</h4><p>修改<code>/etc/my.cnf</code>配置文件，在[mysqld]下添加编码配置，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">character_set_server=utf8</span><br><span class="line">init_connect=&apos;SET NAMES utf8&apos;</span><br></pre></td></tr></table></figure>
+
+<h4 id="默认配置文件路径"><a href="#默认配置文件路径" class="headerlink" title="默认配置文件路径"></a>默认配置文件路径</h4><ul>
+<li>配置文件：/etc/my.cnf  </li>
+<li>日志文件：/var/log//var/log/mysqld.log  </li>
+<li>服务启动脚本：/usr/lib/systemd/system/mysqld.service  </li>
+<li>socket文件：/var/run/mysqld/mysqld.pid</li>
+</ul>
+<h4 id="查看my-cnf位置"><a href="#查看my-cnf位置" class="headerlink" title="查看my.cnf位置"></a>查看my.cnf位置</h4><p>查看mysqld命令位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which mysqld</span><br></pre></td></tr></table></figure>
+
+<p>查看默认的配置文件加载顺序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/mysqld --verbose --help | grep -A 1 &apos;Default options&apos;</span><br></pre></td></tr></table></figure>
+
+<p>显示结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Default options are read from the following files in the given order:</span><br><span class="line">/etc/my.cnf /etc/mysql/my.cnf /usr/etc/my.cnf ~/.my.cnf</span><br></pre></td></tr></table></figure>
+
+<p>查看mysql默认读取my.cnf目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql --help | grep &apos;my.cnf&apos;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">order of preference, my.cnf, $MYSQL_TCP_PORT,</span><br><span class="line">/etc/my.cnf /etc/mysql/my.cnf /usr/etc/my.cnf ~/.my.cnf</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看mysql全局变量"><a href="#查看mysql全局变量" class="headerlink" title="查看mysql全局变量"></a>查看mysql全局变量</h4><p>未登录mysql时候,shell命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqladmin variables -p</span><br></pre></td></tr></table></figure>
+
+<p>登录mysql的时候，mysql命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show global variables;</span><br></pre></td></tr></table></figure>
+
+<h4 id="mysql备份"><a href="#mysql备份" class="headerlink" title="mysql备份"></a>mysql备份</h4><p>备份命令<br>参照：<a href="http://www.cnblogs.com/xcxc/archive/2013/01/30/2882840.html" target="_blank" rel="noopener">http://www.cnblogs.com/xcxc/archive/2013/01/30/2882840.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h127.0.0.1 -uroot -proot data11 &gt; backupfile.sql</span><br><span class="line">//       ip地址      账号root  密码root  数据库data111   生成的sql文件:backupfile.sql</span><br></pre></td></tr></table></figure>
+
+<p>备份成功，但是出现如下警告，原因是命令行写明文密码不安全。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump: [Warning] Using a password on the command line interface can be insecure.</span><br></pre></td></tr></table></figure>
+
+<p>解决办法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/mysql/my.cnf</span><br></pre></td></tr></table></figure>
+
+<p>增加mysqldump的用户和密码，则无需在命令行指定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[mysqldump]</span><br><span class="line">user=dumper</span><br><span class="line">password=dumper@2017!</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建专门的备份用户-可选"><a href="#创建专门的备份用户-可选" class="headerlink" title="创建专门的备份用户(可选)"></a>创建专门的备份用户(可选)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create user dumper@&apos;127.0.0.1&apos; identified by &apos;dumper@2017!&apos;;</span><br><span class="line">grant select on tempdb.* to dumper@&apos;127.0.0.1&apos;;</span><br><span class="line">grant show view on tempdb.* to dumper@&apos;127.0.0.1&apos;;</span><br><span class="line">grant lock tables on tempdb.* to dumper@&apos;127.0.0.1&apos;;</span><br><span class="line">grant trigger on tempdb.* to dumper@&apos;127.0.0.1&apos;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="mysql备份文件还原"><a href="#mysql备份文件还原" class="headerlink" title="mysql备份文件还原"></a>mysql备份文件还原</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -proot data11 &lt; backupfile.sql</span><br><span class="line">//  账号root  密码root  数据库data111   还原的sql文件:backupfile.sql</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改默认3306端口"><a href="#修改默认3306端口" class="headerlink" title="修改默认3306端口"></a>修改默认3306端口</h4><ul>
+<li><p><code>vi /etc/my.cnf</code></p>
+</li>
+<li><p>配置如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[client]</span><br><span class="line">port=3417</span><br><span class="line">[mysqld]</span><br><span class="line">port=3417</span><br><span class="line">datadir=/var/lib/mysql</span><br><span class="line">socket=/var/lib/mysql/mysql.sock</span><br><span class="line">symbolic-links=0</span><br><span class="line">log-error=/var/log/mysqld.log</span><br><span class="line">pid-file=/var/run/mysqld/mysqld.pid</span><br><span class="line">validate_password=off</span><br><span class="line">bind-address=127.0.0.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启mysql<br><code>systemctl restart mysqld</code></p>
+</li>
+<li><p>重启失败<br>关闭SELinux:<code>setenforce 0</code>,再次重启。</p>
+</li>
+</ul>
+<h4 id="实用sql语句"><a href="#实用sql语句" class="headerlink" title="实用sql语句"></a>实用sql语句</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***生成2-20之间随机整数**/</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">FLOOR</span>(<span class="number">2</span> + (<span class="keyword">RAND</span>() * <span class="number">20</span>));</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/centos7/" rel="tag"># centos7</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/20/centos7-postgresql-install/" rel="next" title="centos7安装postgresql10.1">
+                <i class="fa fa-chevron-left"></i> centos7安装postgresql10.1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/21/centos7-php7-install/" rel="prev" title="centos7安装php">
+                centos7安装php <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="哈特中尉">
+            
+              <p class="site-author-name" itemprop="name">哈特中尉</p>
+              <p class="site-description motion-element" itemprop="description">原谅我几番莽撞，冲动过；原谅我始终软弱，拖累太多。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看已安装的mysql"><span class="nav-number">1.</span> <span class="nav-text">查看已安装的mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卸载已经安装"><span class="nav-number">2.</span> <span class="nav-text">卸载已经安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置yum源"><span class="nav-number">3.</span> <span class="nav-text">配置yum源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装MySQL"><span class="nav-number">4.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动MySQL服务"><span class="nav-number">5.</span> <span class="nav-text">启动MySQL服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看MySQL的启动状态"><span class="nav-number">6.</span> <span class="nav-text">查看MySQL的启动状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开机启动"><span class="nav-number">7.</span> <span class="nav-text">开机启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改root默认密码"><span class="nav-number">8.</span> <span class="nav-text">修改root默认密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#忘记root密码解决办法"><span class="nav-number">9.</span> <span class="nav-text">忘记root密码解决办法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看密码策略"><span class="nav-number">10.</span> <span class="nav-text">查看密码策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改密码策略"><span class="nav-number">11.</span> <span class="nav-text">修改密码策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加远程登录用户"><span class="nav-number">12.</span> <span class="nav-text">添加远程登录用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置默认编码为utf8"><span class="nav-number">13.</span> <span class="nav-text">配置默认编码为utf8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认配置文件路径"><span class="nav-number">14.</span> <span class="nav-text">默认配置文件路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看my-cnf位置"><span class="nav-number">15.</span> <span class="nav-text">查看my.cnf位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看mysql全局变量"><span class="nav-number">16.</span> <span class="nav-text">查看mysql全局变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysql备份"><span class="nav-number">17.</span> <span class="nav-text">mysql备份</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建专门的备份用户-可选"><span class="nav-number">18.</span> <span class="nav-text">创建专门的备份用户(可选)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mysql备份文件还原"><span class="nav-number">19.</span> <span class="nav-text">mysql备份文件还原</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改默认3306端口"><span class="nav-number">20.</span> <span class="nav-text">修改默认3306端口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实用sql语句"><span class="nav-number">21.</span> <span class="nav-text">实用sql语句</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">哈特中尉</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
