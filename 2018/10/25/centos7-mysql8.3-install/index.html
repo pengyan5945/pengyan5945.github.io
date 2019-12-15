@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="centos7,mysql,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="yum 安装方式下载太慢。用网易的镜像啊！！！！！ yum 安装方式下载太慢。用网易的镜像啊！！！！！ yum 安装方式下载太慢。用网易的镜像啊！！！！！ 参考地址：https://blog.csdn.net/weixin_42266606/article/details/80879571https://www.cnblogs.com/kevingrace/p/10482469.html 12r">
+<meta name="keywords" content="centos7,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos7安装mysql8.0.18">
+<meta property="og:url" content="https://www.pengyan.top/2018/10/25/centos7-mysql8.3-install/index.html">
+<meta property="og:site_name" content="哈特中尉&#39;s Blog">
+<meta property="og:description" content="yum 安装方式下载太慢。用网易的镜像啊！！！！！ yum 安装方式下载太慢。用网易的镜像啊！！！！！ yum 安装方式下载太慢。用网易的镜像啊！！！！！ 参考地址：https://blog.csdn.net/weixin_42266606/article/details/80879571https://www.cnblogs.com/kevingrace/p/10482469.html 12r">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-15T09:10:21.116Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="centos7安装mysql8.0.18">
+<meta name="twitter:description" content="yum 安装方式下载太慢。用网易的镜像啊！！！！！ yum 安装方式下载太慢。用网易的镜像啊！！！！！ yum 安装方式下载太慢。用网易的镜像啊！！！！！ 参考地址：https://blog.csdn.net/weixin_42266606/article/details/80879571https://www.cnblogs.com/kevingrace/p/10482469.html 12r">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.pengyan.top/2018/10/25/centos7-mysql8.3-install/">
+
+
+
+
+
+  <title>centos7安装mysql8.0.18 | 哈特中尉's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">哈特中尉's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Android、iOS、Java</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2018/10/25/centos7-mysql8.3-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">centos7安装mysql8.0.18</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T12:56:03+08:00">
+                2018-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">centos7</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> yum 安装方式下载太慢。用网易的镜像啊！！！！！<br> yum 安装方式下载太慢。用网易的镜像啊！！！！！<br> yum 安装方式下载太慢。用网易的镜像啊！！！！！</p>
+<p>参考地址：<a href="https://blog.csdn.net/weixin_42266606/article/details/80879571" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42266606/article/details/80879571</a><br><a href="https://www.cnblogs.com/kevingrace/p/10482469.html" target="_blank" rel="noopener">https://www.cnblogs.com/kevingrace/p/10482469.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mariadb</span><br><span class="line">rpm -e mariadb-libs-5.5.56-2.el7.x86_64 --nodeps</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/</span><br><span class="line">mkdir mysql</span><br><span class="line">cd mysql</span><br><span class="line">wget http://mirrors.163.com/mysql/Downloads/MySQL-8.0/mysql-8.0.18-1.el7.x86_64.rpm-bundle.tar</span><br><span class="line">tar -xvf mysql-8.0.18-1.el7.x86_64.rpm-bundle.tar </span><br><span class="line">rpm -ivh mysql-community-common-8.0.18-1.el7.x86_64.rpm --nodeps --force</span><br><span class="line">rpm -ivh mysql-community-libs-8.0.18-1.el7.x86_64.rpm --nodeps --force</span><br><span class="line">rpm -ivh mysql-community-client-8.0.18-1.el7.x86_64.rpm --nodeps --force</span><br><span class="line">rpm -ivh mysql-community-server-8.0.18-1.el7.x86_64.rpm --nodeps --force</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create user &apos;develop&apos;@&apos;%&apos; identified with mysql_native_password by &apos;develop&apos;;</span><br><span class="line">grant all privileges on *.* to &apos;develop&apos;@&apos;%&apos; with grant option;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看已安装的mysql"><a href="#查看已安装的mysql" class="headerlink" title="查看已安装的mysql"></a>查看已安装的mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed | grep mysql</span><br></pre></td></tr></table></figure>
+
+<h4 id="卸载已经安装"><a href="#卸载已经安装" class="headerlink" title="卸载已经安装"></a>卸载已经安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y remove mysql-libs.x86_64</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置yum源"><a href="#配置yum源" class="headerlink" title="配置yum源"></a>配置yum源</h4><ul>
+<li>安装mysql源<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum --enablerepo=mysql80-community install -y mysql-community-server</span><br><span class="line">yum install -y mysql-community-client</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动MySQL服务"><a href="#启动MySQL服务" class="headerlink" title="启动MySQL服务"></a>启动MySQL服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看MySQL的启动状态"><a href="#查看MySQL的启动状态" class="headerlink" title="查看MySQL的启动状态"></a>查看MySQL的启动状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable mysqld</span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改root默认密码"><a href="#修改root默认密码" class="headerlink" title="修改root默认密码"></a>修改root默认密码</h4><p>mysql安装完成之后，在/var/log/mysqld.log文件中给root生成了一个临时密码。<br>通过下面的方式找到root默认密码，然后登录mysql进行修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;A temporary password&quot; /var/log/mysqld.log</span><br><span class="line">mysql -uroot -p</span><br><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;root@2017!&apos;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Mysql安装配置-根据提示设置新的密码和密码策略"><a href="#Mysql安装配置-根据提示设置新的密码和密码策略" class="headerlink" title="Mysql安装配置,根据提示设置新的密码和密码策略"></a>Mysql安装配置,根据提示设置新的密码和密码策略</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">'你的密码'</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="登录mysql"><a href="#登录mysql" class="headerlink" title="登录mysql"></a>登录mysql</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<h4 id="添加远程登录用户"><a href="#添加远程登录用户" class="headerlink" title="添加远程登录用户"></a>添加远程登录用户</h4><p>参考地址：<a href="https://www.cnblogs.com/sos-blue/p/6852945.html" target="_blank" rel="noopener">https://www.cnblogs.com/sos-blue/p/6852945.html</a></p>
+<ul>
+<li><p>创建用户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'develop'</span>@<span class="string">'%'</span>  <span class="keyword">IDENTIFIED</span> <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">'你的密码'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>允许远程登录</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'develop'</span>@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改密码策略，支持客户端, 更新一下用户的密码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'develop'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">'你的密码'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刷新权限</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>注意：远程访问mysql，关闭防火墙配置，否则无法访问哟。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/centos7/" rel="tag"># centos7</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/06/macos-postgresql/" rel="next" title="macos install postgresql with brew">
+                <i class="fa fa-chevron-left"></i> macos install postgresql with brew
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/23/centos7-install-node/" rel="prev" title="CentOS7安装Nodejs">
+                CentOS7安装Nodejs <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="哈特中尉">
+            
+              <p class="site-author-name" itemprop="name">哈特中尉</p>
+              <p class="site-description motion-element" itemprop="description">原谅我几番莽撞，冲动过；原谅我始终软弱，拖累太多。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看已安装的mysql"><span class="nav-number">1.</span> <span class="nav-text">查看已安装的mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#卸载已经安装"><span class="nav-number">2.</span> <span class="nav-text">卸载已经安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置yum源"><span class="nav-number">3.</span> <span class="nav-text">配置yum源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装MySQL"><span class="nav-number">4.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启动MySQL服务"><span class="nav-number">5.</span> <span class="nav-text">启动MySQL服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看MySQL的启动状态"><span class="nav-number">6.</span> <span class="nav-text">查看MySQL的启动状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开机启动"><span class="nav-number">7.</span> <span class="nav-text">开机启动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改root默认密码"><span class="nav-number">8.</span> <span class="nav-text">修改root默认密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mysql安装配置-根据提示设置新的密码和密码策略"><span class="nav-number">9.</span> <span class="nav-text">Mysql安装配置,根据提示设置新的密码和密码策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#登录mysql"><span class="nav-number">10.</span> <span class="nav-text">登录mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加远程登录用户"><span class="nav-number">11.</span> <span class="nav-text">添加远程登录用户</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">哈特中尉</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

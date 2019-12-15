@@ -252,6 +252,631 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/08/06/centos7-SELinux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/06/centos7-SELinux/" itemprop="url">centos7关闭SELinux</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T12:56:03+08:00">
+                2017-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">centos7</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://baike.baidu.com/item/SELinux/8865268?fr=aladdin" target="_blank" rel="noopener">百度百科SELinux介绍</a><br><a href="https://www.zhihu.com/question/20559538" target="_blank" rel="noopener">Linux 下为何要关闭 SELinux? - 知乎</a><br>参考文献：<a href="http://bguncle.blog.51cto.com/3184079/957315/" target="_blank" rel="noopener">查看 SELinux状态及关闭SELinux</a></p>
+<h4 id="查看SELinux状态："><a href="#查看SELinux状态：" class="headerlink" title="查看SELinux状态："></a>查看SELinux状态：</h4><ul>
+<li><p><code>/usr/sbin/sestatus -v</code><br>如果SELinux status参数为enabled即为开启状态</p>
+</li>
+<li><p>或者  <code>getenforce</code><br>Permissive</p>
+</li>
+</ul>
+<h4 id="关闭SELinux："><a href="#关闭SELinux：" class="headerlink" title="关闭SELinux："></a>关闭SELinux：</h4><ul>
+<li><p>临时关闭（不用重启机器）：<br>setenforce 0  ##设置SELinux 成为permissive模式<br>setenforce 1  ##设置SELinux 成为enforcing模式</p>
+</li>
+<li><p>修改配置文件（需要重启机器）：<br>修改 文件<br><code>vi /etc/selinux/config</code><br>将<code>SELINUX=enforcing</code>改为<code>SELINUX=disabled</code></p>
+</li>
+<li><p>重启机器生效</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/31/macos-homebrew/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/31/macos-homebrew/" itemprop="url">MacOS Homebrew使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-31T12:56:03+08:00">
+                2017-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Homebrew/" itemprop="url" rel="index">
+                    <span itemprop="name">Homebrew</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="安装（需要-Ruby）"><a href="#安装（需要-Ruby）" class="headerlink" title="安装（需要 Ruby）"></a>安装（需要 Ruby）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>搜索：<code>brew search mysql</code><br>查询：<code>brew info mysql</code> 主要看具体的信息，比如目前的版本，依赖，安装后注意事项等<br>更新：<code>brew update</code> 这会更新 Homebrew 自己，并且使得接下来的两个操作有意义——<br>检查过时（是否有新版本）：<code>brew outdated</code> 这回列出所有安装的软件里可以升级的那些<br>升级：<code>brew upgrade</code> 升级所有可以升级的软件们<br>清理：<code>brew cleanup</code> 清理不需要的版本极其安装包缓存<br>常用的就这些。一般来说如果你追求新版本（不升级不舒服斯基），那么你最常用的操作序列就是这样：</p>
+<p>更多使用参考:<a href="https://blog.csdn.net/u010275932/article/details/76080833" target="_blank" rel="noopener">https://blog.csdn.net/u010275932/article/details/76080833</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/26/centos7-crontab-job/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/centos7-crontab-job/" itemprop="url">centos7 crontab定时任务</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T12:56:03+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">centos7</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="编写要执行的脚本back-sh"><a href="#编写要执行的脚本back-sh" class="headerlink" title="编写要执行的脚本back.sh"></a>编写要执行的脚本<code>back.sh</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">date=$(date +%Y%m%d%H%M)</span><br><span class="line">mysqldump -h127.0.0.1  data11 &gt; $date.sql</span><br></pre></td></tr></table></figure>
+
+<h4 id="使脚本可以执行"><a href="#使脚本可以执行" class="headerlink" title="使脚本可以执行"></a>使脚本可以执行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x back.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="添加-crontab任务"><a href="#添加-crontab任务" class="headerlink" title="添加 crontab任务"></a>添加 crontab任务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>内容如下：<br>每分钟执行一次<code>~/back.sh</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* * * * * ~/back.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="禁止产生邮件"><a href="#禁止产生邮件" class="headerlink" title="禁止产生邮件"></a>禁止产生邮件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>第一行加入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MAILTO=&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装crond服务-可选"><a href="#安装crond服务-可选" class="headerlink" title="安装crond服务(可选)"></a>安装crond服务(可选)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install vixie-cron</span><br><span class="line">yum install crontabs</span><br></pre></td></tr></table></figure>
+
+<p>说明：<br>vixie-cron软件包是cron的主程序；<br>crontabs软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。</p>
+<h4 id="启动cron服务"><a href="#启动cron服务" class="headerlink" title="启动cron服务"></a>启动cron服务</h4><p>cron 是linux的内置服务，但它不自动起来。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#启动服务</span><br><span class="line">/sbin/service crond start</span><br><span class="line">#关闭服务</span><br><span class="line">/sbin/service crond stop</span><br><span class="line">#重启服务</span><br><span class="line">/sbin/service crond restart</span><br><span class="line">#重新载入配置</span><br><span class="line">/sbin/service crond reload</span><br><span class="line">#查看crontab服务状态</span><br><span class="line">service crond status</span><br><span class="line">#手动启动crontab服务</span><br><span class="line">service crond start</span><br></pre></td></tr></table></figure>
+
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">编辑root下的定时任务</span><br><span class="line">crontab -u root -e</span><br><span class="line"></span><br><span class="line">每天早上6点追加一条字符串到一个文本。</span><br><span class="line">6 * * * echo &quot;Good morning.&quot; &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line">每两个小时追加一条字符串一个文本。</span><br><span class="line">*/2 * * * echo &quot;Have a break now.&quot; &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line">晚上11点到早上8点之间每两个小时，早上八点</span><br><span class="line">23-7/2，8 * * * echo &quot;Have a good dream：）&quot; &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line">每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点</span><br><span class="line">11 4 * 1-3 command line</span><br><span class="line"></span><br><span class="line">1月1日早上4点</span><br><span class="line">4 1 1 * command line</span><br><span class="line"></span><br><span class="line">每月每天每小时的第 0 分钟执行一次 /bin/ls</span><br><span class="line">* * * * /bin/ls</span><br><span class="line"></span><br><span class="line">在 12 月内, 每天的早上 6 点到 12 点中，每隔 20 分钟执行一次 /usr/bin/backup</span><br><span class="line">*/20 6-12 * 12 * /usr/bin/backup</span><br><span class="line"></span><br><span class="line">周一到周五每天下午 5:00 寄一封信给 alex_mail_name :</span><br><span class="line">17 * * 1-5 mail -s &quot;hi&quot; alex_mail_name &lt; /tmp/maildata</span><br><span class="line"></span><br><span class="line">每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分....执行 echo &quot;haha&quot;</span><br><span class="line">0-23/2 * * * echo &quot;haha&quot;</span><br><span class="line"></span><br><span class="line">晚上11点到早上8点之间每两个小时，早上8点,显示时间</span><br><span class="line">23-7/2，8 * * * date</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/22/centos7-tengine-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/22/centos7-tengine-install/" itemprop="url">centos7安装nginx</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T12:56:03+08:00">
+                2017-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">centos7</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Tengine是由淘宝网发起的Web服务器项目。它在Nginx的基础上，针对大访问量网站的需求，添加了很多高级功能和特性。Tengine的性能和稳定性已经在大型的网站如淘宝网，天猫商城等得到了很好的检验。它的最终目标是打造一个高效、稳定、安全、易用的Web平台。</p>
+<p>从2011年12月开始，Tengine成为一个开源项目，Tengine团队在积极地开发和维护着它。Tengine团队的核心成员来自于淘宝、搜狗等互联网企业。</p>
+<p>更多介绍   <a href="http://tengine.taobao.org/" target="_blank" rel="noopener">http://tengine.taobao.org/</a></p>
+<h4 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install openssl</span><br><span class="line">yum -y install openssl-devel</span><br><span class="line">yum -y install pcre</span><br><span class="line">yum -y install pcre-devel</span><br></pre></td></tr></table></figure>
+
+<h4 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://tengine.taobao.org/download/tengine-2.2.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="释放文件"><a href="#释放文件" class="headerlink" title="释放文件"></a>释放文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf tengine-2.2.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="执行配置"><a href="#执行配置" class="headerlink" title="执行配置"></a>执行配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd tengine-2.2.0</span><br><span class="line">./configure --prefix=/usr/local/nginx</span><br></pre></td></tr></table></figure>
+
+<h4 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin</span><br><span class="line">./nginx</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -tln | grep 80</span><br><span class="line">curl http://localhost</span><br></pre></td></tr></table></figure>
+
+<p>如果局域网其他机器无法访问，请检查防火墙配置。</p>
+<h4 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx</span><br><span class="line">service nginx start</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/21/centos7-firewall-setting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -601,180 +1226,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/20/centos7-postgresql-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="哈特中尉">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哈特中尉's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/20/centos7-postgresql-install/" itemprop="url">centos7安装postgresql10.1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T12:56:03+08:00">
-                2017-07-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">centos7</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>官方教程：<a href="https://www.postgresql.org/download/linux/redhat/" target="_blank" rel="noopener">https://www.postgresql.org/download/linux/redhat/</a></p>
-<h4 id="安装资源rpm"><a href="#安装资源rpm" class="headerlink" title="安装资源rpm"></a>安装资源rpm</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-1.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<h4 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a>安装客户端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install postgresql10</span><br></pre></td></tr></table></figure>
-
-<h4 id="安装服务端"><a href="#安装服务端" class="headerlink" title="安装服务端"></a>安装服务端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install postgresql10-server</span><br></pre></td></tr></table></figure>
-
-<h4 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/pgsql-10/bin/postgresql-10-setup initdb</span><br></pre></td></tr></table></figure>
-
-<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p><code>vi /var/lib/pgsql/10/data/postgresql.conf</code><br>一共修改3处</p>
-<ul>
-<li><code>#listen_addresses = &#39;localhost&#39;</code> 改为 <code>listen_addresses = &#39;*&#39;</code></li>
-<li><code>#port = 5432</code>  改为 <code>port = 5432</code></li>
-<li><code>#password_encryption = md5</code> 改为 <code>password_encryption = md5</code></li>
-</ul>
-<h4 id="修改访问控制文件"><a href="#修改访问控制文件" class="headerlink" title="修改访问控制文件"></a>修改访问控制文件</h4><p><code>vi /var/lib/pgsql/10/data/pg_hba.conf</code><br>文件最后一行加入<br><code>host all all 0.0.0.0/0 md5</code></p>
-<h4 id="开放防火墙"><a href="#开放防火墙" class="headerlink" title="开放防火墙"></a>开放防火墙</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=5432/tcp  </span><br><span class="line">firewall-cmd --permanent --add-port=80/tcp  </span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start postgresql-10</span><br></pre></td></tr></table></figure>
-
-<h4 id="访问postgresql"><a href="#访问postgresql" class="headerlink" title="访问postgresql"></a>访问postgresql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - postgres</span><br></pre></td></tr></table></figure>
-
-<h4 id="设置postgres用户密码"><a href="#设置postgres用户密码" class="headerlink" title="设置postgres用户密码"></a>设置postgres用户密码</h4><ul>
-<li><code>su - postgres</code> 切换用户，执行后提示符会变为 ‘-bash-4.2$’</li>
-<li><code>psql -U postgres</code> 登录数据库，执行后提示符变为 ‘postgres=#’</li>
-<li><code>ALTER USER postgres WITH PASSWORD &#39;abc123&#39;;</code>  设置postgres用户密码</li>
-<li><code>\q</code>  退出数据库</li>
-<li><code>exit</code></li>
-</ul>
-<h4 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart postgresql-10</span><br></pre></td></tr></table></figure>
-
-<h4 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable postgresql-10</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/20/centos7-mysql5.7-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1047,6 +1498,180 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/20/centos7-postgresql-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/20/centos7-postgresql-install/" itemprop="url">centos7安装postgresql10.1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T12:56:03+08:00">
+                2017-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">centos7</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>官方教程：<a href="https://www.postgresql.org/download/linux/redhat/" target="_blank" rel="noopener">https://www.postgresql.org/download/linux/redhat/</a></p>
+<h4 id="安装资源rpm"><a href="#安装资源rpm" class="headerlink" title="安装资源rpm"></a>安装资源rpm</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装客户端"><a href="#安装客户端" class="headerlink" title="安装客户端"></a>安装客户端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install postgresql10</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装服务端"><a href="#安装服务端" class="headerlink" title="安装服务端"></a>安装服务端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install postgresql10-server</span><br></pre></td></tr></table></figure>
+
+<h4 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/pgsql-10/bin/postgresql-10-setup initdb</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p><code>vi /var/lib/pgsql/10/data/postgresql.conf</code><br>一共修改3处</p>
+<ul>
+<li><code>#listen_addresses = &#39;localhost&#39;</code> 改为 <code>listen_addresses = &#39;*&#39;</code></li>
+<li><code>#port = 5432</code>  改为 <code>port = 5432</code></li>
+<li><code>#password_encryption = md5</code> 改为 <code>password_encryption = md5</code></li>
+</ul>
+<h4 id="修改访问控制文件"><a href="#修改访问控制文件" class="headerlink" title="修改访问控制文件"></a>修改访问控制文件</h4><p><code>vi /var/lib/pgsql/10/data/pg_hba.conf</code><br>文件最后一行加入<br><code>host all all 0.0.0.0/0 md5</code></p>
+<h4 id="开放防火墙"><a href="#开放防火墙" class="headerlink" title="开放防火墙"></a>开放防火墙</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --add-port=5432/tcp  </span><br><span class="line">firewall-cmd --permanent --add-port=80/tcp  </span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start postgresql-10</span><br></pre></td></tr></table></figure>
+
+<h4 id="访问postgresql"><a href="#访问postgresql" class="headerlink" title="访问postgresql"></a>访问postgresql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - postgres</span><br></pre></td></tr></table></figure>
+
+<h4 id="设置postgres用户密码"><a href="#设置postgres用户密码" class="headerlink" title="设置postgres用户密码"></a>设置postgres用户密码</h4><ul>
+<li><code>su - postgres</code> 切换用户，执行后提示符会变为 ‘-bash-4.2$’</li>
+<li><code>psql -U postgres</code> 登录数据库，执行后提示符变为 ‘postgres=#’</li>
+<li><code>ALTER USER postgres WITH PASSWORD &#39;abc123&#39;;</code>  设置postgres用户密码</li>
+<li><code>\q</code>  退出数据库</li>
+<li><code>exit</code></li>
+</ul>
+<h4 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart postgresql-10</span><br></pre></td></tr></table></figure>
+
+<h4 id="开机自启动"><a href="#开机自启动" class="headerlink" title="开机自启动"></a>开机自启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable postgresql-10</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/19/centos7-maven-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1140,11 +1765,11 @@
       
         
           
-            <h4 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz</span><br></pre></td></tr></table></figure>
+            <h4 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz</span><br></pre></td></tr></table></figure>
 
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-maven-3.5.0-bin.tar.gz</span><br></pre></td></tr></table></figure>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-maven-3.6.3-bin.tar.gz</span><br></pre></td></tr></table></figure>
 
-<h4 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export MAVEN_HOME=/home/dev/software/apache-maven-3.5.0</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin</span><br></pre></td></tr></table></figure>
+<h4 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export MAVEN_HOME=/home/dev/software/apache-maven-3.6.3</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin</span><br></pre></td></tr></table></figure>
 
 <h4 id="刷新环境变量"><a href="#刷新环境变量" class="headerlink" title="刷新环境变量"></a>刷新环境变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
 
@@ -1397,693 +2022,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/18/centos7-git-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="哈特中尉">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哈特中尉's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/18/centos7-git-install/" itemprop="url">centos7安装git</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-18T12:56:03+08:00">
-                2017-07-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">centos7</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>git作为一个 分布式代码仓库，其实没有server和client的概念。</p>
-<h4 id="yum安装git"><a href="#yum安装git" class="headerlink" title="yum安装git"></a>yum安装git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看git版本"><a href="#查看git版本" class="headerlink" title="查看git版本"></a>查看git版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-<h4 id="卸载git"><a href="#卸载git" class="headerlink" title="卸载git"></a>卸载git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove git</span><br></pre></td></tr></table></figure>
-
-<p>yum仓库更新不及时，目前最新的git版本可以从GitHub下载安装。</p>
-<h4 id="下载安装文件"><a href="#下载安装文件" class="headerlink" title="下载安装文件"></a>下载安装文件</h4><p><a href="https://github.com/git/git/releases" target="_blank" rel="noopener">https://github.com/git/git/releases</a><br><a href="https://www.kernel.org/pub/software/scm/git" target="_blank" rel="noopener">https://www.kernel.org/pub/software/scm/git</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/git/git/archive/v2.13.3.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h4 id="解压当前目录"><a href="#解压当前目录" class="headerlink" title="解压当前目录"></a>解压当前目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf v2.13.3.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h4 id="安装必要依赖"><a href="#安装必要依赖" class="headerlink" title="安装必要依赖"></a>安装必要依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum  -y install  cpio curl curl-devel zlib-devel openssl-develexpat-devel gettex-devel build-essential tcl8.4 tk8.4 gettext vim openssh-clients setuptoolntsysv system-config-securitylevel-tui system-config-network-tui wget man gccgcc-c++ gcc-g77 flex autoconfig automake bison zlib-devel bzip2-develncurses-devel libtool libtool-ltdl openssl openssl-devel pam-devellibtermcap-devel curl-devel libxml2-devel libevent libevent-devel gettext-develexpat-devel</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br><span class="line">yum -y install gcc automake autoconf libtool make</span><br><span class="line">yum -y install gettext</span><br><span class="line">yum -y install zlib zlib-devel</span><br><span class="line">yum -y install expat-devel</span><br><span class="line">yum -y install perl-ExtUtils-MakeMaker package</span><br><span class="line">yum -y install libcurl-devel.x86_64</span><br><span class="line">yum -y install expat-devel.x86_64</span><br><span class="line">yum -y install asciidoc</span><br><span class="line">yum -y install sgml2xml openjade texinfo xmlto asciidoc perl perl-devel</span><br><span class="line">yum -y install perl-XML-SAX.noarch</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh http://springdale.math.ias.edu/data/puias/unsupported/7/x86_64//docbook2X-0.8.8-17.sdl7.x86_64.rpm</span><br><span class="line">cd /usr/bin</span><br><span class="line">ln -s db2x_docbook2texi docbook2x-texi</span><br></pre></td></tr></table></figure>
-
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd git-2.13.3</span><br><span class="line">make configure  </span><br><span class="line">./configure --prefix=/usr/local/ --with-curl --with-expat  </span><br><span class="line">make  </span><br><span class="line">#make prefix=/usr/local install-doc install-html install-info</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看安装结果"><a href="#查看安装结果" class="headerlink" title="查看安装结果"></a>查看安装结果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
-
-<h4 id="附：安装git命令补齐功能"><a href="#附：安装git命令补齐功能" class="headerlink" title="附：安装git命令补齐功能"></a>附：安装git命令补齐功能</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># rpm –ivh http://mirror.1000mbps.com/fedora-epel/6Server/x86_64/bash-completion-1.3-7.el6.noarch.rpm</span><br><span class="line"># cp  contrib/completion/git-completion.bash /etc/bash_completion.d/</span><br><span class="line"># source /etc/bash_completion</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/17/centos-linux-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="哈特中尉">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哈特中尉's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/17/centos-linux-install/" itemprop="url">centos7安装软件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T12:56:03+08:00">
-                2017-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">centos7</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="一、二进制安装方式"><a href="#一、二进制安装方式" class="headerlink" title="一、二进制安装方式"></a>一、二进制安装方式</h2><p>事先已经编译好二进制形式的软件包,其优点是安装使用容易，缺点则是缺乏灵活性.<br>如果该软件包是为特定的硬件/操作系统平台编译的，那它就不能在另外的平台或环境下正确执行。</p>
-<h4 id="1-rpm形式的二进制软件包"><a href="#1-rpm形式的二进制软件包" class="headerlink" title="1.rpm形式的二进制软件包"></a>1.rpm形式的二进制软件包</h4><p>安装：<code>rpm -ivh abc.rpm</code><br>卸载：<code>rpm -e packgename</code></p>
-<p>说明：RPM（RedHat Packge Manager）是RedHat公司出的软件包管理器，使用它可以很容易地对rpm形式的软件包进行安装、升级、卸载、验证、查询等操作，安装简单，而卸载时也可以将软件安装在多处目录中的文件删除干净，因此推荐初学者尽可能使用rpm形式的软件包。</p>
-<p>安装参数说明</p>
-<ul>
-<li>-i是安装，</li>
-<li>-v是校验，</li>
-<li>-h是用散列符显示安装进度，</li>
-<li>abc.rpm是软件包的文件名（这里的<em>.rpm特指</em>.src.rpm以外的以rpm为后缀的文件）；</li>
-</ul>
-<p>卸载参数说明</p>
-<ul>
-<li>-e是删除软件包，</li>
-<li>packgename是软件包名</li>
-</ul>
-<p>查看软件包名</p>
-<h4 id="2-tar-gz-tgz-bz2-形式的二进制软件包"><a href="#2-tar-gz-tgz-bz2-形式的二进制软件包" class="headerlink" title="2.tar.gz/tgz/bz2 形式的二进制软件包"></a>2.tar.gz/tgz/bz2 形式的二进制软件包</h4><p>安装：<code>tar zxvf *.tar.gz</code> 或 <code>tar yxvf *.bz2</code><br>卸载：手动删除</p>
-<p>说明：tar.gz/bz2形式的二进制软件包是用tar工具来打包、用gzip/bzip2压缩的，安装时直接解包即可。对于解压后只有单一目录的软件，卸载时用命令“rm -rf 软件目录名”；如果解压后文件分散在多处目录中，则必须一一手动删除（稍麻烦），想知道解压时向系统中安装了哪些文件，可以用命令<code>tar ztvf abc.tar.gz</code> <code>tar ytvf abc.bz2</code>获取清单。<br>tar的参数z是调用gzip解压，</p>
-<ul>
-<li>x是解包，</li>
-<li>v是校验，</li>
-<li>f是显示结果，</li>
-<li>y是调用bzip2解压，</li>
-<li>t是列出包的文件清单。</li>
-</ul>
-<h2 id="二、源码安装方式"><a href="#二、源码安装方式" class="headerlink" title="二、源码安装方式"></a>二、源码安装方式</h2><p>Linux软件的源代码分发是指提供了该软件所有程序源代码的发布形式，需要用户自己编译成可执行的二进制代码并进行安装，其优点是配置灵活，可以随意去掉或保留某些功能/模块，适应多种硬件/操作系统平台及编译环境，缺点是难度较大，一般不适合初学者使用。</p>
-<p>1、<code>*.src.rpm</code>形式的源代码软件包</p>
-<p>安装：<code>rpm -rebuild *.src.rpm</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/src/dist/RPMS</span><br><span class="line">rpm -ivh *.rpm</span><br></pre></td></tr></table></figure>
-
-<p>卸载：<code>rpm -e packgename</code></p>
-<p>说明：<code>rpm --rebuild *.src.rpm</code>命令将源代码编译并在/usr/src/dist/RPMS下生成二进制的rpm包，然后再安装该二进制包即可。packgename如前所述。</p>
-<p>2、<code>*.tar.gz</code> <code>*.tgz</code> <code>*.bz2</code>形式的源代码软件包</p>
-<p>安装：<code>tar zxvf *.tar.gz</code> 或 <code>tar yxvf *.bz2</code> 先解压</p>
-<p>然后进入解压后的目录：<br> 配置<br><code>./configure</code><br> 编译<br><code>make</code><br>安装<br><code>make install</code></p>
-<p>卸载：<code>make uninstall</code> 或 <code>手动删除</code></p>
-<p>说明：建议解压后先阅读说明文件，可以了解安装有哪些需求，有必要时还需改动编译配置。有些软件包的源代码在编译安装后可以用make install命令来进行卸载，如果不提供此功能，则软件的卸载必须手动删除。由于软件可能将文件分散地安装在系统的多个目录中，往往很难把它删除干净，那你应该在编译前进行配置，指定软件将要安装到目标路径：<code>./configure --prefix=目录名</code>，这样可以使用<code>rm -rf 软件目录名</code>命令来进行干净彻底的卸载。与其它安装方式相比，需要用户自己编译安装是最难的，它适合于使用Linux已有一定经验的人，一般不推荐初学者使用。</p>
-<p>参考资料</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">tar</span><br><span class="line"></span><br><span class="line">-c: 建立压缩档案</span><br><span class="line">-x：解压</span><br><span class="line">-t：查看内容</span><br><span class="line">-r：向压缩归档文件末尾追加文件</span><br><span class="line">-u：更新原压缩包中的文件</span><br><span class="line"></span><br><span class="line">这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。</span><br><span class="line"></span><br><span class="line">-z：有gzip属性的</span><br><span class="line">-j：有bz2属性的</span><br><span class="line">-Z：有compress属性的</span><br><span class="line">-v：显示所有过程</span><br><span class="line">-O：将文件解开到标准输出</span><br><span class="line"></span><br><span class="line">下面的参数-f是必须的</span><br><span class="line"></span><br><span class="line">-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。</span><br><span class="line"></span><br><span class="line"># tar -cf all.tar *.jpg</span><br><span class="line">这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。</span><br><span class="line"></span><br><span class="line"># tar -rf all.tar *.gif</span><br><span class="line">这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。</span><br><span class="line"></span><br><span class="line"># tar -uf all.tar logo.gif</span><br><span class="line">这条命令是更新原来tar包all.tar中logo.gif文件，-u是表示更新文件的意思。</span><br><span class="line"></span><br><span class="line"># tar -tf all.tar</span><br><span class="line">这条命令是列出all.tar包中所有文件，-t是列出文件的意思</span><br><span class="line"></span><br><span class="line"># tar -xf all.tar</span><br><span class="line">这条命令是解出all.tar包中所有文件，-t是解开的意思</span><br><span class="line"></span><br><span class="line">压缩</span><br><span class="line"></span><br><span class="line">tar -cvf jpg.tar *.jpg //将目录里所有jpg文件打包成tar.jpg </span><br><span class="line"></span><br><span class="line">tar -czf jpg.tar.gz *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</span><br><span class="line"></span><br><span class="line"> tar -cjf jpg.tar.bz2 *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2</span><br><span class="line"></span><br><span class="line">tar -cZf jpg.tar.Z *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z</span><br><span class="line"></span><br><span class="line">rar a jpg.rar *.jpg //rar格式的压缩，需要先下载rar for linux</span><br><span class="line"></span><br><span class="line">zip jpg.zip *.jpg //zip格式的压缩，需要先下载zip for linux</span><br><span class="line"></span><br><span class="line">解压</span><br><span class="line"></span><br><span class="line">tar -xvf file.tar //解压 tar包</span><br><span class="line"></span><br><span class="line">tar -xzvf file.tar.gz //解压tar.gz</span><br><span class="line"></span><br><span class="line">tar -xjvf file.tar.bz2   //解压 tar.bz2</span><br><span class="line"></span><br><span class="line">tar -xZvf file.tar.Z   //解压tar.Z</span><br><span class="line"></span><br><span class="line">unrar e file.rar //解压rar</span><br><span class="line"></span><br><span class="line">unzip file.zip //解压zip</span><br><span class="line"></span><br><span class="line">总结</span><br><span class="line"></span><br><span class="line">1、*.tar 用 tar -xvf 解压</span><br><span class="line"></span><br><span class="line">2、*.gz 用 gzip -d或者gunzip 解压</span><br><span class="line"></span><br><span class="line">3、*.tar.gz和*.tgz 用 tar -xzf 解压</span><br><span class="line"></span><br><span class="line">4、*.bz2 用 bzip2 -d或者用bunzip2 解压</span><br><span class="line"></span><br><span class="line">5、*.tar.bz2用tar -xjf 解压</span><br><span class="line"></span><br><span class="line">6、*.Z 用 uncompress 解压</span><br><span class="line"></span><br><span class="line">7、*.tar.Z 用tar -xZf 解压</span><br><span class="line"></span><br><span class="line">8、*.rar 用 unrar e解压</span><br><span class="line"></span><br><span class="line">9、*.zip 用 unzip 解压</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/16/centos7-jdk1.8-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="哈特中尉">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哈特中尉's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/16/centos7-jdk1.8-install/" itemprop="url">centos7安装jdk1.8</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T12:56:03+08:00">
-                2017-07-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">centos7</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="查看已经安装的jdk"><a href="#查看已经安装的jdk" class="headerlink" title="查看已经安装的jdk"></a>查看已经安装的jdk</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br><span class="line">rpm -qa | grep java</span><br></pre></td></tr></table></figure>
-
-<h4 id="如果有安装OpenJDK，先卸载。"><a href="#如果有安装OpenJDK，先卸载。" class="headerlink" title="如果有安装OpenJDK，先卸载。"></a>如果有安装OpenJDK，先卸载。</h4><p>卸载命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -e --nodeps tzdata-java-2012c-1.el6.noarch</span><br><span class="line">rpm -e --nodeps java-1.6.0-openjdk-1.6.0.0-1.45.1.11.1.el6.x86_64</span><br></pre></td></tr></table></figure>
-
-<h4 id="tar-gz安装-二选一"><a href="#tar-gz安装-二选一" class="headerlink" title="tar.gz安装(二选一)"></a>tar.gz安装(二选一)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u131-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p>相当于解压，同级目录下会出现<code>jdk1.8.0_121</code>目录，你懂的。</p>
-<h4 id="rpm安装-二选一"><a href="#rpm安装-二选一" class="headerlink" title="rpm安装(二选一)"></a>rpm安装(二选一)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh jdk-8u121-linux-x64.rpm</span><br></pre></td></tr></table></figure>
-
-<p>JDK默认安装在<code>/usr/java</code>中，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/java</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default  jdk1.8.0_121  latest</span><br></pre></td></tr></table></figure>
-
-<h4 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br></pre></td></tr></table></figure>
-
-<p>在文件尾部添加如下配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_121</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure>
-
-<h4 id="环境变量立即生效"><a href="#环境变量立即生效" class="headerlink" title="环境变量立即生效"></a>环境变量立即生效</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/15/centos-user/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="哈特中尉">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哈特中尉's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/15/centos-user/" itemprop="url">centos7用户管理</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T12:56:03+08:00">
-                2017-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">centos7</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="创建用户（用户名dev）"><a href="#创建用户（用户名dev）" class="headerlink" title="创建用户（用户名dev）"></a>创建用户（用户名dev）</h4><p>用户名dev  密码  dev123</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd dev  #创建用户</span><br><span class="line">passwd dev   #设置密码(否则无法登录)</span><br></pre></td></tr></table></figure>
-
-<h4 id="修改用户密码"><a href="#修改用户密码" class="headerlink" title="修改用户密码"></a>修改用户密码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">passwd  # 修改当前登录用户密码</span><br><span class="line">passwd  dev # 修改dev用户的密码</span><br></pre></td></tr></table></figure>
-
-<h4 id="添加-sudo-权限"><a href="#添加-sudo-权限" class="headerlink" title="添加 sudo 权限"></a>添加 sudo 权限</h4><ul>
-<li><p>sudoers 文件添加可写权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -v u+w /etc/sudoers</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加dev到sudoers文件中(<code>vi /etc/sudoers</code>)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">## Allow root to run any commands anywher</span><br><span class="line">root    ALL=(ALL)       ALL  </span><br><span class="line">dev     ALL=(ALL)       ALL</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>取消 sudoers 文件可写权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -v u-w /etc/sudoers</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">userdel dev   #单纯删除用户</span><br><span class="line">userdel -f dev   #同用户目录一并删除</span><br></pre></td></tr></table></figure>
-
-<h4 id="强制退出已经登陆用户"><a href="#强制退出已经登陆用户" class="headerlink" title="强制退出已经登陆用户"></a>强制退出已经登陆用户</h4><p>查看当前登陆用户的命令：<br><code>w</code><br>会输入如下结果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> 12:10:27 up 21:13,  1 user,  load average: 0.00, 0.01, 0.08</span><br><span class="line">USER          TTY      FROM                 LOGIN@   IDLE   JCPU   PCPU WHAT</span><br><span class="line">root            pts/0    ***.**.***.**    11:33    0.00s  0.08s  0.00s   w</span><br><span class="line">tmp_3254  ps1       ***.**.***.**     11:33    0.00s  0.08s  0.00s   ls</span><br></pre></td></tr></table></figure>
-
-<p>这里知道了登陆用户的tty是ps1执行强制退出命令pkill：<br><code>pkill -kill -t [TTY]</code><br><code>pkill -kill -t ps1</code></p>
-<h4 id="建工作组"><a href="#建工作组" class="headerlink" title="建工作组"></a>建工作组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd test</span><br></pre></td></tr></table></figure>
-
-<h4 id="新建用户同时增加工作组"><a href="#新建用户同时增加工作组" class="headerlink" title="新建用户同时增加工作组"></a>新建用户同时增加工作组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -g test dev    #新建username用户并增加到test工作组</span><br></pre></td></tr></table></figure>
-
-<h4 id="给已有的用户增加工作组"><a href="#给已有的用户增加工作组" class="headerlink" title="给已有的用户增加工作组"></a>给已有的用户增加工作组</h4><p><code>usermod -G groupname username</code><br>或者：<code>gpasswd -a user group</code></p>
-<h4 id="从组中删除用户A"><a href="#从组中删除用户A" class="headerlink" title="从组中删除用户A"></a>从组中删除用户A</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -d A GROUP</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2131,7 +2074,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2142,7 +2085,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2153,7 +2096,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

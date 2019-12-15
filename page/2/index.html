@@ -252,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/10/14/ios-dev-media/">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2018/10/25/centos7-mysql8.3-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="哈特中尉">
@@ -271,7 +271,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/14/ios-dev-media/" itemprop="url">objc开发多媒体</a></h1>
+                <a class="post-title-link" href="/2018/10/25/centos7-mysql8.3-install/" itemprop="url">centos7安装mysql8.0.18</a></h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-14T12:56:03+08:00">
-                2017-10-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T12:56:03+08:00">
+                2018-10-25
               </time>
             
 
@@ -306,8 +306,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ios/" itemprop="url" rel="index">
-                    <span itemprop="name">ios</span>
+                  <a href="/categories/centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">centos7</span>
                   </a>
                 </span>
 
@@ -345,18 +345,515 @@
       
         
           
-            <h4 id="1-播放音效"><a href="#1-播放音效" class="headerlink" title="1.播放音效"></a>1.播放音效</h4><ul>
-<li>添加AVFoundation框架依赖</li>
-<li>#import &lt;AVFoundation/AVFoundation.h&gt;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//1.获得音效文件的全路径</span><br><span class="line">    </span><br><span class="line">    NSURL *url=[[NSBundle mainBundle]URLForResource:@&quot;buyao.wav&quot; withExtension:nil];</span><br><span class="line">    </span><br><span class="line">    //2.加载音效文件，创建音效ID（SoundID,一个ID对应一个音效文件）</span><br><span class="line">    SystemSoundID soundID=0;</span><br><span class="line">    AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &amp;soundID);</span><br><span class="line">    </span><br><span class="line">    //把需要销毁的音效文件的ID传递给它既可销毁</span><br><span class="line">    //AudioServicesDisposeSystemSoundID(soundID);</span><br><span class="line">    </span><br><span class="line">    //3.播放音效文件</span><br><span class="line">    //下面的两个函数都可以用来播放音效文件，第一个函数伴随有震动效果</span><br><span class="line">    AudioServicesPlayAlertSound(soundID);</span><br><span class="line">    //AudioServicesPlaySystemSound(&lt;#SystemSoundID inSystemSoundID#&gt;)</span><br></pre></td></tr></table></figure>
+            <p> yum 安装方式下载太慢。用网易的镜像啊！！！！！<br> yum 安装方式下载太慢。用网易的镜像啊！！！！！<br> yum 安装方式下载太慢。用网易的镜像啊！！！！！</p>
+<p>参考地址：<a href="https://blog.csdn.net/weixin_42266606/article/details/80879571" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42266606/article/details/80879571</a><br><a href="https://www.cnblogs.com/kevingrace/p/10482469.html" target="_blank" rel="noopener">https://www.cnblogs.com/kevingrace/p/10482469.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mariadb</span><br><span class="line">rpm -e mariadb-libs-5.5.56-2.el7.x86_64 --nodeps</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/</span><br><span class="line">mkdir mysql</span><br><span class="line">cd mysql</span><br><span class="line">wget http://mirrors.163.com/mysql/Downloads/MySQL-8.0/mysql-8.0.18-1.el7.x86_64.rpm-bundle.tar</span><br><span class="line">tar -xvf mysql-8.0.18-1.el7.x86_64.rpm-bundle.tar </span><br><span class="line">rpm -ivh mysql-community-common-8.0.18-1.el7.x86_64.rpm --nodeps --force</span><br><span class="line">rpm -ivh mysql-community-libs-8.0.18-1.el7.x86_64.rpm --nodeps --force</span><br><span class="line">rpm -ivh mysql-community-client-8.0.18-1.el7.x86_64.rpm --nodeps --force</span><br><span class="line">rpm -ivh mysql-community-server-8.0.18-1.el7.x86_64.rpm --nodeps --force</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create user &apos;develop&apos;@&apos;%&apos; identified with mysql_native_password by &apos;develop&apos;;</span><br><span class="line">grant all privileges on *.* to &apos;develop&apos;@&apos;%&apos; with grant option;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看已安装的mysql"><a href="#查看已安装的mysql" class="headerlink" title="查看已安装的mysql"></a>查看已安装的mysql</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list installed | grep mysql</span><br></pre></td></tr></table></figure>
+
+<h4 id="卸载已经安装"><a href="#卸载已经安装" class="headerlink" title="卸载已经安装"></a>卸载已经安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y remove mysql-libs.x86_64</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置yum源"><a href="#配置yum源" class="headerlink" title="配置yum源"></a>配置yum源</h4><ul>
+<li>安装mysql源<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh https://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h4 id="1-播放音频"><a href="#1-播放音频" class="headerlink" title="1.播放音频"></a>1.播放音频</h4><ul>
-<li>添加AVFoundation框架依赖</li>
-<li>#import &lt;AVFoundation/AVFoundation.h&gt;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//1.音频文件的url路径</span><br><span class="line">    NSURL *url=[[NSBundle mainBundle]URLForResource:@&quot;235319.mp3&quot; withExtension:Nil];</span><br><span class="line">    </span><br><span class="line">    //2.创建播放器（注意：一个AVAudioPlayer只能播放一个url）</span><br><span class="line">    AVAudioPlayer *audioPlayer=[[AVAudioPlayer alloc]initWithContentsOfURL:url error:Nil];</span><br><span class="line">    </span><br><span class="line">    //3.缓冲</span><br><span class="line">    [audioPlayer prepareToPlay];</span><br><span class="line">    </span><br><span class="line">    //4.播放</span><br><span class="line">    [audioPlayer play];</span><br></pre></td></tr></table></figure>
+<h4 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum --enablerepo=mysql80-community install -y mysql-community-server</span><br><span class="line">yum install -y mysql-community-client</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动MySQL服务"><a href="#启动MySQL服务" class="headerlink" title="启动MySQL服务"></a>启动MySQL服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看MySQL的启动状态"><a href="#查看MySQL的启动状态" class="headerlink" title="查看MySQL的启动状态"></a>查看MySQL的启动状态</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status mysqld</span><br></pre></td></tr></table></figure>
+
+<h4 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable mysqld</span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改root默认密码"><a href="#修改root默认密码" class="headerlink" title="修改root默认密码"></a>修改root默认密码</h4><p>mysql安装完成之后，在/var/log/mysqld.log文件中给root生成了一个临时密码。<br>通过下面的方式找到root默认密码，然后登录mysql进行修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;A temporary password&quot; /var/log/mysqld.log</span><br><span class="line">mysql -uroot -p</span><br><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;root@2017!&apos;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Mysql安装配置-根据提示设置新的密码和密码策略"><a href="#Mysql安装配置-根据提示设置新的密码和密码策略" class="headerlink" title="Mysql安装配置,根据提示设置新的密码和密码策略"></a>Mysql安装配置,根据提示设置新的密码和密码策略</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">'你的密码'</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="登录mysql"><a href="#登录mysql" class="headerlink" title="登录mysql"></a>登录mysql</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<h4 id="添加远程登录用户"><a href="#添加远程登录用户" class="headerlink" title="添加远程登录用户"></a>添加远程登录用户</h4><p>参考地址：<a href="https://www.cnblogs.com/sos-blue/p/6852945.html" target="_blank" rel="noopener">https://www.cnblogs.com/sos-blue/p/6852945.html</a></p>
+<ul>
+<li><p>创建用户</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'develop'</span>@<span class="string">'%'</span>  <span class="keyword">IDENTIFIED</span> <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">'你的密码'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>允许远程登录</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'develop'</span>@<span class="string">'%'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改密码策略，支持客户端, 更新一下用户的密码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'develop'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">'你的密码'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刷新权限</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
+<p>注意：远程访问mysql，关闭防火墙配置，否则无法访问哟。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2018/08/06/macos-postgresql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/06/macos-postgresql/" itemprop="url">macos install postgresql with brew</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-06T12:56:03+08:00">
+                2018-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/postgresql/" itemprop="url" rel="index">
+                    <span itemprop="name">postgresql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>参考地址：<br><a href="https://www.cnblogs.com/shineqiujuan/p/4703304.html" target="_blank" rel="noopener">https://www.cnblogs.com/shineqiujuan/p/4703304.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/10/24/centos7-redis-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/24/centos7-redis-install/" itemprop="url">centos7安装redis</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-24T12:56:03+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/centos7/" itemprop="url" rel="index">
+                    <span itemprop="name">centos7</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://download.redis.io/releases/redis-5.0.0.tar.gz</span><br><span class="line">$ tar -zxvf redis-5.0.0.tar.gz</span><br><span class="line">$ cd redis-5.0.0</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<h4 id="检查Redis是否正常"><a href="#检查Redis是否正常" class="headerlink" title="检查Redis是否正常"></a>检查Redis是否正常</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install tcl</span><br><span class="line">make test</span><br></pre></td></tr></table></figure>
+
+<h4 id="可执行文件拷贝到-PATH目录下"><a href="#可执行文件拷贝到-PATH目录下" class="headerlink" title="可执行文件拷贝到$PATH目录下"></a>可执行文件拷贝到$PATH目录下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd src</span><br><span class="line">cp redis-server /usr/local/bin/  </span><br><span class="line">cp redis-cli /usr/local/bin/</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动Redis-server"><a href="#启动Redis-server" class="headerlink" title="启动Redis-server"></a>启动Redis-server</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看Redis-server启动情况"><a href="#查看Redis-server启动情况" class="headerlink" title="查看Redis-server启动情况"></a>查看Redis-server启动情况</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep redis</span><br><span class="line">netstat -nlt|grep 6379</span><br></pre></td></tr></table></figure>
+
+<h4 id="停止redis"><a href="#停止redis" class="headerlink" title="停止redis"></a>停止redis</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep redis</span><br><span class="line">kill -9 1111</span><br></pre></td></tr></table></figure>
+
+<h4 id="注册服务-推荐"><a href="#注册服务-推荐" class="headerlink" title="注册服务(推荐)"></a>注册服务(推荐)</h4><p><code>redis-5.0.0/utils</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./install_server.sh</span><br></pre></td></tr></table></figure>
+
+<p>一路Enter即可。方便操作。</p>
+<h4 id="启动Redis-client"><a href="#启动Redis-client" class="headerlink" title="启动Redis-client"></a>启动Redis-client</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli</span><br></pre></td></tr></table></figure>
+
+<h4 id="开启远程访问"><a href="#开启远程访问" class="headerlink" title="开启远程访问"></a>开启远程访问</h4><ul>
+<li>注释bind</li>
+<li>protected-mode改为no</li>
+</ul>
+<p><code>vi /etc/redis/6379.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#bind 127.0.0.1</span><br><span class="line">protected-mode no</span><br></pre></td></tr></table></figure>
+
+<h4 id="密码保护"><a href="#密码保护" class="headerlink" title="密码保护"></a>密码保护</h4><p>客户端连接必须输入密码<code>abc123</code>才可连接成功！<br><code>vi /etc/redis/6379.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass abc123</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/10/20/docker-with-redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/20/docker-with-redis/" itemprop="url">docker搭建redis环境</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-20T20:56:03+08:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="1-搜索redis镜像"><a href="#1-搜索redis镜像" class="headerlink" title="1.搜索redis镜像"></a>1.搜索redis镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search redis</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-拉取redis"><a href="#2-拉取redis" class="headerlink" title="2.拉取redis"></a>2.拉取redis</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull  redis</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-启动镜像"><a href="#3-启动镜像" class="headerlink" title="3.启动镜像"></a>3.启动镜像</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 6379:6379 -d redis:latest redis-server</span><br></pre></td></tr></table></figure>
+
 
           
         
@@ -498,7 +995,9 @@
       
         
           
-            <h4 id="1-添加点击事件"><a href="#1-添加点击事件" class="headerlink" title="1.添加点击事件"></a>1.添加点击事件</h4><ul>
+            <h4 id="1-下载历史版本xcode"><a href="#1-下载历史版本xcode" class="headerlink" title="1.下载历史版本xcode"></a>1.下载历史版本xcode</h4><p><a href="https://developer.apple.com/download/more" target="_blank" rel="noopener">https://developer.apple.com/download/more</a></p>
+<h4 id="2-安装两个版本xcode"><a href="#2-安装两个版本xcode" class="headerlink" title="2.安装两个版本xcode"></a>2.安装两个版本xcode</h4><p><a href="http://www.jianshu.com/p/c266b4623900" target="_blank" rel="noopener">http://www.jianshu.com/p/c266b4623900</a></p>
+<h4 id="1-添加点击事件"><a href="#1-添加点击事件" class="headerlink" title="1.添加点击事件"></a>1.添加点击事件</h4><ul>
 <li><p>storyboard添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-(void) onButtonClick:(id)sender&#123;</span><br><span class="line">    [sender setHighlighted:YES];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -530,6 +1029,159 @@
 </li>
 <li><p>3.在tableView中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath &#123;</span><br><span class="line">    cell.telephoneBlock=^()&#123;</span><br><span class="line">        NSLog(@&quot;phonenumber is ======%@&quot;,shopmodel.phone);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/10/14/ios-dev-media/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="哈特中尉">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="哈特中尉's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/14/ios-dev-media/" itemprop="url">objc开发多媒体</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-14T12:56:03+08:00">
+                2017-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ios/" itemprop="url" rel="index">
+                    <span itemprop="name">ios</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="1-播放音效"><a href="#1-播放音效" class="headerlink" title="1.播放音效"></a>1.播放音效</h4><ul>
+<li>添加AVFoundation框架依赖</li>
+<li>#import &lt;AVFoundation/AVFoundation.h&gt;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//1.获得音效文件的全路径</span><br><span class="line">    </span><br><span class="line">    NSURL *url=[[NSBundle mainBundle]URLForResource:@&quot;buyao.wav&quot; withExtension:nil];</span><br><span class="line">    </span><br><span class="line">    //2.加载音效文件，创建音效ID（SoundID,一个ID对应一个音效文件）</span><br><span class="line">    SystemSoundID soundID=0;</span><br><span class="line">    AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &amp;soundID);</span><br><span class="line">    </span><br><span class="line">    //把需要销毁的音效文件的ID传递给它既可销毁</span><br><span class="line">    //AudioServicesDisposeSystemSoundID(soundID);</span><br><span class="line">    </span><br><span class="line">    //3.播放音效文件</span><br><span class="line">    //下面的两个函数都可以用来播放音效文件，第一个函数伴随有震动效果</span><br><span class="line">    AudioServicesPlayAlertSound(soundID);</span><br><span class="line">    //AudioServicesPlaySystemSound(&lt;#SystemSoundID inSystemSoundID#&gt;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="1-播放音频"><a href="#1-播放音频" class="headerlink" title="1.播放音频"></a>1.播放音频</h4><ul>
+<li>添加AVFoundation框架依赖</li>
+<li>#import &lt;AVFoundation/AVFoundation.h&gt;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//1.音频文件的url路径</span><br><span class="line">    NSURL *url=[[NSBundle mainBundle]URLForResource:@&quot;235319.mp3&quot; withExtension:Nil];</span><br><span class="line">    </span><br><span class="line">    //2.创建播放器（注意：一个AVAudioPlayer只能播放一个url）</span><br><span class="line">    AVAudioPlayer *audioPlayer=[[AVAudioPlayer alloc]initWithContentsOfURL:url error:Nil];</span><br><span class="line">    </span><br><span class="line">    //3.缓冲</span><br><span class="line">    [audioPlayer prepareToPlay];</span><br><span class="line">    </span><br><span class="line">    //4.播放</span><br><span class="line">    [audioPlayer play];</span><br></pre></td></tr></table></figure>
+
+</li>
 </ul>
 
           
@@ -978,6 +1630,15 @@
 <h4 id="server-xml配置外部项目"><a href="#server-xml配置外部项目" class="headerlink" title="server.xml配置外部项目"></a>server.xml配置外部项目</h4><p>在<code>conf/server.xml</code>文件<code>hosts</code>节点下增加如下内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Context path=&quot;/demo&quot; docBase=&quot;D:\develop\git4projects\demo\target\hxch-1.0&quot; </span><br><span class="line">    debug=&quot;9&quot; reloadable=&quot;false&quot; verbosity=&quot;4&quot;/&gt;</span><br></pre></td></tr></table></figure>
 
+<h4 id="查看java进程并结束"><a href="#查看java进程并结束" class="headerlink" title="查看java进程并结束"></a>查看java进程并结束</h4><ul>
+<li><p>查看Java进程获取pid号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef|grep java|grep -v grep</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>杀死进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 4834</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 
           
         
@@ -1179,636 +1840,11 @@ pkill -9 java</code></pre>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/08/06/centos7-SELinux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="哈特中尉">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哈特中尉's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/06/centos7-SELinux/" itemprop="url">centos7关闭SELinux</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T12:56:03+08:00">
-                2017-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">centos7</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://baike.baidu.com/item/SELinux/8865268?fr=aladdin" target="_blank" rel="noopener">百度百科SELinux介绍</a><br><a href="https://www.zhihu.com/question/20559538" target="_blank" rel="noopener">Linux 下为何要关闭 SELinux? - 知乎</a><br>参考文献：<a href="http://bguncle.blog.51cto.com/3184079/957315/" target="_blank" rel="noopener">查看 SELinux状态及关闭SELinux</a></p>
-<h4 id="查看SELinux状态："><a href="#查看SELinux状态：" class="headerlink" title="查看SELinux状态："></a>查看SELinux状态：</h4><ul>
-<li><p><code>/usr/sbin/sestatus -v</code><br>如果SELinux status参数为enabled即为开启状态</p>
-</li>
-<li><p>或者  <code>getenforce</code><br>Permissive</p>
-</li>
-</ul>
-<h4 id="关闭SELinux："><a href="#关闭SELinux：" class="headerlink" title="关闭SELinux："></a>关闭SELinux：</h4><ul>
-<li><p>临时关闭（不用重启机器）：<br>setenforce 0  ##设置SELinux 成为permissive模式<br>setenforce 1  ##设置SELinux 成为enforcing模式</p>
-</li>
-<li><p>修改配置文件（需要重启机器）：<br>修改 文件<br><code>vi /etc/selinux/config</code><br>将<code>SELINUX=enforcing</code>改为<code>SELINUX=disabled</code></p>
-</li>
-<li><p>重启机器生效</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/31/macos-homebrew/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="哈特中尉">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哈特中尉's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/31/macos-homebrew/" itemprop="url">MacOS Homebrew使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-31T12:56:03+08:00">
-                2017-07-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Homebrew/" itemprop="url" rel="index">
-                    <span itemprop="name">Homebrew</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="安装（需要-Ruby）"><a href="#安装（需要-Ruby）" class="headerlink" title="安装（需要 Ruby）"></a>安装（需要 Ruby）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -e &quot;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&quot;</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>搜索：<code>brew search mysql</code><br>查询：<code>brew info mysql</code> 主要看具体的信息，比如目前的版本，依赖，安装后注意事项等<br>更新：<code>brew update</code> 这会更新 Homebrew 自己，并且使得接下来的两个操作有意义——<br>检查过时（是否有新版本）：<code>brew outdated</code> 这回列出所有安装的软件里可以升级的那些<br>升级：<code>brew upgrade</code> 升级所有可以升级的软件们<br>清理：<code>brew cleanup</code> 清理不需要的版本极其安装包缓存<br>常用的就这些。一般来说如果你追求新版本（不升级不舒服斯基），那么你最常用的操作序列就是这样：</p>
-<p>更多使用参考:<a href="https://blog.csdn.net/u010275932/article/details/76080833" target="_blank" rel="noopener">https://blog.csdn.net/u010275932/article/details/76080833</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/26/centos7-crontab-job/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="哈特中尉">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哈特中尉's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/26/centos7-crontab-job/" itemprop="url">centos7 crontab定时任务</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T12:56:03+08:00">
-                2017-07-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">centos7</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="编写要执行的脚本back-sh"><a href="#编写要执行的脚本back-sh" class="headerlink" title="编写要执行的脚本back.sh"></a>编写要执行的脚本<code>back.sh</code></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">date=$(date +%Y%m%d%H%M)</span><br><span class="line">mysqldump -h127.0.0.1  data11 &gt; $date.sql</span><br></pre></td></tr></table></figure>
-
-<h4 id="使脚本可以执行"><a href="#使脚本可以执行" class="headerlink" title="使脚本可以执行"></a>使脚本可以执行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x back.sh</span><br></pre></td></tr></table></figure>
-
-<h4 id="添加-crontab任务"><a href="#添加-crontab任务" class="headerlink" title="添加 crontab任务"></a>添加 crontab任务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
-
-<p>内容如下：<br>每分钟执行一次<code>~/back.sh</code>文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* * * * * ~/back.sh</span><br></pre></td></tr></table></figure>
-
-<h4 id="禁止产生邮件"><a href="#禁止产生邮件" class="headerlink" title="禁止产生邮件"></a>禁止产生邮件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
-
-<p>第一行加入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MAILTO=&quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<h4 id="安装crond服务-可选"><a href="#安装crond服务-可选" class="headerlink" title="安装crond服务(可选)"></a>安装crond服务(可选)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install vixie-cron</span><br><span class="line">yum install crontabs</span><br></pre></td></tr></table></figure>
-
-<p>说明：<br>vixie-cron软件包是cron的主程序；<br>crontabs软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。</p>
-<h4 id="启动cron服务"><a href="#启动cron服务" class="headerlink" title="启动cron服务"></a>启动cron服务</h4><p>cron 是linux的内置服务，但它不自动起来。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#启动服务</span><br><span class="line">/sbin/service crond start</span><br><span class="line">#关闭服务</span><br><span class="line">/sbin/service crond stop</span><br><span class="line">#重启服务</span><br><span class="line">/sbin/service crond restart</span><br><span class="line">#重新载入配置</span><br><span class="line">/sbin/service crond reload</span><br><span class="line">#查看crontab服务状态</span><br><span class="line">service crond status</span><br><span class="line">#手动启动crontab服务</span><br><span class="line">service crond start</span><br></pre></td></tr></table></figure>
-
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">编辑root下的定时任务</span><br><span class="line">crontab -u root -e</span><br><span class="line"></span><br><span class="line">每天早上6点追加一条字符串到一个文本。</span><br><span class="line">6 * * * echo &quot;Good morning.&quot; &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line">每两个小时追加一条字符串一个文本。</span><br><span class="line">*/2 * * * echo &quot;Have a break now.&quot; &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line">晚上11点到早上8点之间每两个小时，早上八点</span><br><span class="line">23-7/2，8 * * * echo &quot;Have a good dream：）&quot; &gt;&gt; /tmp/test.txt</span><br><span class="line"></span><br><span class="line">每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点</span><br><span class="line">11 4 * 1-3 command line</span><br><span class="line"></span><br><span class="line">1月1日早上4点</span><br><span class="line">4 1 1 * command line</span><br><span class="line"></span><br><span class="line">每月每天每小时的第 0 分钟执行一次 /bin/ls</span><br><span class="line">* * * * /bin/ls</span><br><span class="line"></span><br><span class="line">在 12 月内, 每天的早上 6 点到 12 点中，每隔 20 分钟执行一次 /usr/bin/backup</span><br><span class="line">*/20 6-12 * 12 * /usr/bin/backup</span><br><span class="line"></span><br><span class="line">周一到周五每天下午 5:00 寄一封信给 alex_mail_name :</span><br><span class="line">17 * * 1-5 mail -s &quot;hi&quot; alex_mail_name &lt; /tmp/maildata</span><br><span class="line"></span><br><span class="line">每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分....执行 echo &quot;haha&quot;</span><br><span class="line">0-23/2 * * * echo &quot;haha&quot;</span><br><span class="line"></span><br><span class="line">晚上11点到早上8点之间每两个小时，早上8点,显示时间</span><br><span class="line">23-7/2，8 * * * date</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.pengyan.top/2017/07/22/centos7-tengine-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="哈特中尉">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="哈特中尉's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/22/centos7-tengine-install/" itemprop="url">centos7安装nginx</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T12:56:03+08:00">
-                2017-07-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/centos7/" itemprop="url" rel="index">
-                    <span itemprop="name">centos7</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Tengine是由淘宝网发起的Web服务器项目。它在Nginx的基础上，针对大访问量网站的需求，添加了很多高级功能和特性。Tengine的性能和稳定性已经在大型的网站如淘宝网，天猫商城等得到了很好的检验。它的最终目标是打造一个高效、稳定、安全、易用的Web平台。</p>
-<p>从2011年12月开始，Tengine成为一个开源项目，Tengine团队在积极地开发和维护着它。Tengine团队的核心成员来自于淘宝、搜狗等互联网企业。</p>
-<p>更多介绍   <a href="http://tengine.taobao.org/" target="_blank" rel="noopener">http://tengine.taobao.org/</a></p>
-<h4 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install openssl</span><br><span class="line">yum -y install openssl-devel</span><br><span class="line">yum -y install pcre</span><br><span class="line">yum -y install pcre-devel</span><br></pre></td></tr></table></figure>
-
-<h4 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://tengine.taobao.org/download/tengine-2.2.0.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h4 id="释放文件"><a href="#释放文件" class="headerlink" title="释放文件"></a>释放文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf tengine-2.2.0.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h4 id="执行配置"><a href="#执行配置" class="headerlink" title="执行配置"></a>执行配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd tengine-2.2.0</span><br><span class="line">./configure --prefix=/usr/local/nginx</span><br></pre></td></tr></table></figure>
-
-<h4 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-
-<h4 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin</span><br><span class="line">./nginx</span><br></pre></td></tr></table></figure>
-
-<h4 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -tln | grep 80</span><br><span class="line">curl http://localhost</span><br></pre></td></tr></table></figure>
-
-<p>如果局域网其他机器无法访问，请检查防火墙配置。</p>
-<h4 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx</span><br><span class="line">service nginx start</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1856,7 +1892,7 @@ pkill -9 java</code></pre>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">41</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1867,7 +1903,7 @@ pkill -9 java</code></pre>
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1878,7 +1914,7 @@ pkill -9 java</code></pre>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
