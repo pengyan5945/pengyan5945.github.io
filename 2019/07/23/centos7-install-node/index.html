@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="安装包软链接（推荐）123456wget https://npm.taobao.org/mirrors/node/v12.13.1/node-v12.13.1-linux-x64.tar.xztar -xvf node-v12.13.1-linux-x64.tar.xzcd node-v12.13.1-linux-x64/bin./node -vln -s ~/node-v12.13.1-linu">
+<meta name="description" content="安装包软链接（推荐）123456wget https://npm.taobao.org/mirrors/node/v12.13.1/node-v12.13.1-linux-x64.tar.xztar -xvf node-v12.13.1-linux-x64.tar.xzcd node-v12.13.1-linux-x64/bin./node -vln -s /home/develop/softwa">
 <meta name="keywords" content="centos7,Nodejs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7安装Nodejs">
 <meta property="og:url" content="https://www.pengyan.top/2019/07/23/centos7-install-node/index.html">
 <meta property="og:site_name" content="哈特中尉&#39;s Blog">
-<meta property="og:description" content="安装包软链接（推荐）123456wget https://npm.taobao.org/mirrors/node/v12.13.1/node-v12.13.1-linux-x64.tar.xztar -xvf node-v12.13.1-linux-x64.tar.xzcd node-v12.13.1-linux-x64/bin./node -vln -s ~/node-v12.13.1-linu">
+<meta property="og:description" content="安装包软链接（推荐）123456wget https://npm.taobao.org/mirrors/node/v12.13.1/node-v12.13.1-linux-x64.tar.xztar -xvf node-v12.13.1-linux-x64.tar.xzcd node-v12.13.1-linux-x64/bin./node -vln -s /home/develop/softwa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-15T09:10:21.108Z">
+<meta property="og:updated_time" content="2019-12-17T12:23:12.432Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7安装Nodejs">
-<meta name="twitter:description" content="安装包软链接（推荐）123456wget https://npm.taobao.org/mirrors/node/v12.13.1/node-v12.13.1-linux-x64.tar.xztar -xvf node-v12.13.1-linux-x64.tar.xzcd node-v12.13.1-linux-x64/bin./node -vln -s ~/node-v12.13.1-linu">
+<meta name="twitter:description" content="安装包软链接（推荐）123456wget https://npm.taobao.org/mirrors/node/v12.13.1/node-v12.13.1-linux-x64.tar.xztar -xvf node-v12.13.1-linux-x64.tar.xzcd node-v12.13.1-linux-x64/bin./node -vln -s /home/develop/softwa">
 
 
 
@@ -342,9 +342,13 @@
       
 
       
-        <h4 id="安装包软链接（推荐）"><a href="#安装包软链接（推荐）" class="headerlink" title="安装包软链接（推荐）"></a>安装包软链接（推荐）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://npm.taobao.org/mirrors/node/v12.13.1/node-v12.13.1-linux-x64.tar.xz</span><br><span class="line">tar -xvf node-v12.13.1-linux-x64.tar.xz</span><br><span class="line">cd node-v12.13.1-linux-x64/bin</span><br><span class="line">./node -v</span><br><span class="line">ln -s ~/node-v12.13.1-linux-x64/bin/node /usr/bin/node</span><br><span class="line">ln -s ~/node-v12.13.1-linux-x64/bin/npm /usr/bin/npm</span><br></pre></td></tr></table></figure>
+        <h4 id="安装包软链接（推荐）"><a href="#安装包软链接（推荐）" class="headerlink" title="安装包软链接（推荐）"></a>安装包软链接（推荐）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget https://npm.taobao.org/mirrors/node/v12.13.1/node-v12.13.1-linux-x64.tar.xz</span><br><span class="line">tar -xvf node-v12.13.1-linux-x64.tar.xz</span><br><span class="line">cd node-v12.13.1-linux-x64/bin</span><br><span class="line">./node -v</span><br><span class="line">ln -s /home/develop/software/node-v12.13.1-linux-x64/bin/node /usr/bin/node</span><br><span class="line">ln -s /home/develop/software/node-v12.13.1-linux-x64/bin/npm /usr/bin/npm</span><br></pre></td></tr></table></figure>
 
 <h4 id="源码编译（不推荐-耗时、可能编译错误、依赖缺失）"><a href="#源码编译（不推荐-耗时、可能编译错误、依赖缺失）" class="headerlink" title="源码编译（不推荐:耗时、可能编译错误、依赖缺失）"></a>源码编译（不推荐:耗时、可能编译错误、依赖缺失）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++</span><br><span class="line">wget https://nodejs.org/dist/v12.13.1/node-v12.13.1.tar.gz</span><br><span class="line">tar -zxvf node-v12.13.1.tar.gz</span><br><span class="line">cd node-v12.13.1/</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用淘宝镜像"><a href="#使用淘宝镜像" class="headerlink" title="使用淘宝镜像"></a>使用淘宝镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br><span class="line">#npm config set registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
+
+<h4 id="检测是否修改成功"><a href="#检测是否修改成功" class="headerlink" title="检测是否修改成功"></a>检测是否修改成功</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -522,7 +526,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装包软链接（推荐）"><span class="nav-number">1.</span> <span class="nav-text">安装包软链接（推荐）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源码编译（不推荐-耗时、可能编译错误、依赖缺失）"><span class="nav-number">2.</span> <span class="nav-text">源码编译（不推荐:耗时、可能编译错误、依赖缺失）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装包软链接（推荐）"><span class="nav-number">1.</span> <span class="nav-text">安装包软链接（推荐）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源码编译（不推荐-耗时、可能编译错误、依赖缺失）"><span class="nav-number">2.</span> <span class="nav-text">源码编译（不推荐:耗时、可能编译错误、依赖缺失）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用淘宝镜像"><span class="nav-number">3.</span> <span class="nav-text">使用淘宝镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检测是否修改成功"><span class="nav-number">4.</span> <span class="nav-text">检测是否修改成功</span></a></li></ol></div>
             
 
           </div>
@@ -542,7 +546,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
